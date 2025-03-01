@@ -7,11 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #60a5fa;
+            --primary-color: #7189ff;
+            --primary-light: #7189FE;
+            --background-color: #394053;
             --text-color: #e5e7eb;
-            --background-color: #111827;
-            --card-background: #1f2937;
-            --card-hover: #374151;
+            --card-background: #454d68;
+            --card-hover: #505a7a;
+            --accent-blue: #a0ddff;
+            --gray: #808080;
         }
         
         body {
@@ -26,26 +29,27 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 0 1rem;
         }
 
         .header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 2rem;
+            padding-top: 0;
         }
 
         h1 {
             font-size: 3.5rem;
             margin-bottom: 0.5rem;
             color: var(--text-color);
-            background: linear-gradient(45deg, #60a5fa, #34d399);
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .subheading {
             font-size: 1.5rem;
-            color: #9ca3af;
+            color: var(--gray);
             margin-bottom: 2rem;
         }
 
@@ -56,7 +60,7 @@
             text-align: center;
             margin-bottom: 3rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            border: 1px solid #374151;
+            border: 1px solid var(--primary-color);
         }
 
         .notice p {
@@ -85,20 +89,20 @@
             text-align: center;
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            border: 1px solid #374151;
+            border: 1px solid var(--primary-light);
         }
 
         .card:hover {
             transform: translateY(-5px);
             background: var(--card-hover);
             box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-blue);
         }
 
         .card img {
             width: 72px;
             height: 72px;
             margin-bottom: 1.5rem;
-            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.1));
         }
 
         .card h3 {
@@ -108,35 +112,42 @@
         }
 
         .card p {
-            color: #9ca3af;
+            color: var(--gray);
             font-size: 1rem;
             margin-bottom: 1.5rem;
         }
 
         .card a {
-            color: var(--primary-color);
+            color: var(--accent-blue);
             text-decoration: none;
             font-weight: 600;
             padding: 0.5rem 1rem;
             border-radius: 6px;
             transition: all 0.2s;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .card a:hover {
-            background: rgba(96, 165, 250, 0.1);
+            background: rgba(160, 221, 255, 0.1);
+        }
+
+        .lock-icon {
+            width: 6px;
+            height: 6px;
+            filter: invert(80%) sepia(32%) saturate(838%) hue-rotate(176deg) brightness(103%) contrast(101%);
         }
 
         footer {
             text-align: center;
             padding: 2rem;
-            background-color: var(--card-background);
             margin-top: 4rem;
-            border-top: 1px solid #374151;
+            color: var(--gray);
         }
 
         footer a {
-            color: var(--primary-color);
+            color: var(--accent-blue);
             text-decoration: none;
         }
 
@@ -165,67 +176,67 @@
     <div class="container">
         <header class="header">
             <h1>Nonprofit Hub</h1>
-            <p class="subheading">presented by Good Heart Tech</p>
+            <p class="subheading">Presented by Good Heart Tech</p>
             <div class="notice">
-                <p>🎉 Welcome to our collection of awesome free tools! As part of Good Heart Tech's mission to support nonprofits, we've created these handy resources just for you. Some tools need a login - but don't worry, if you're a nonprofit partner, just reach out and we'll get you set up! Check out more about us at <a href="https://goodhearttech.org/" target="_blank" style="color: #60a5fa;">goodhearttech.org</a> 💙</p>
+                <p>Welcome to our collection of free nonprofit tools! 🎉 Some tools require authentication - if you're a nonprofit partner, contact us for access credentials. <br><br> Visit us at <a href="https://goodhearttech.org/" target="_blank" style="color: var(--accent-blue);">goodhearttech.org</a> 💙</p>
             </div>
         </header>
 
         <div class="grid grid-main">
             <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/2721/2721629.png" alt="Toolkit icon" style="filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);">
+                <img src="https://cdn-icons-png.flaticon.com/512/2490/2490396.png" alt="Toolkit icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
                 <h3>Nonprofit Tech Toolkit</h3>
-                <p>Explore vendors, services, technologies (including free and discounted options), and technology-specific guides crafted for nonprofits. Use this page, the AI-powered search bar, or the sidebar to find your interest in nonprofit technology topics.</p>
-                <a href="https://learn.goodhearttech.org/" target="_blank">Learn More →</a>
+                <p>Curated collection of nonprofit-specific technology resources, including discounted software licenses and implementation guides.</p>
+                <a href="https://learn.goodhearttech.org/" target="_blank">Learn More ↗</a>
             </div>
             
             <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/2721/2721652.png" alt="Documentation icon" style="filter: invert(1) sepia(1) saturate(5) hue-rotate(280deg);">
+                <img src="https://cdn-icons-png.flaticon.com/512/2521/2521826.png" alt="Documentation icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
                 <h3>Password & IT Documentation</h3>
-                <p>Password and IT Documentation management solution (login required)</p>
-                <a href="https://docs.goodhearttech.org/" target="_blank">Access Portal →</a>
+                <p>Secure password management and IT documentation platform; view all your IT documentation in one place.</p>
+                <a href="https://docs.goodhearttech.org/" target="_blank">Access Portal <img src="https://cdn-icons-png.flaticon.com/512/483/483408.png" alt="Lock" class="lock-icon"> ↗</a>
             </div>
         </div>
 
         <div class="grid grid-secondary">
             <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/2721/2721689.png" alt="Security icon" style="filter: invert(1) sepia(1) saturate(5) hue-rotate(100deg);">
+                <img src="https://cdn-icons-png.flaticon.com/512/2913/2913133.png" alt="Security icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
                 <h3>Password Pusher</h3>
-                <p>Convey sensitive information securely</p>
-                <a href="https://push.goodheart.tech/" target="_blank">Send Securely →</a>
+                <p>Auto-expiring password sharing system - encrypted and secure.</p>
+                <a href="https://push.goodheart.tech/" target="_blank">Send Securely ↗</a>
             </div>
 
             <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/2721/2721724.png" alt="Diagram icon" style="filter: invert(1) sepia(1) saturate(5) hue-rotate(25deg);">
-                <h3>Draw.io Instance</h3>
-                <p>Easy diagramming for your organization</p>
-                <a href="https://draw.goodheart.tech" target="_blank">Start Drawing →</a>
+                <img src="https://cdn-icons-png.flaticon.com/512/1785/1785210.png" alt="Diagram icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
+                <h3>Draw.io for Diagramming</h3>
+                <p>Browser-based diagramming tool for flowcharts, network diagrams, and process mapping.</p>
+                <a href="https://draw.goodheart.tech" target="_blank">Start Drawing ↗</a>
             </div>
 
             <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/2721/2721795.png" alt="Convert icon" style="filter: invert(1) sepia(1) saturate(5) hue-rotate(200deg);">
+                <img src="https://cdn-icons-png.flaticon.com/512/4126/4126581.png" alt="Convert icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
                 <h3>File Converter</h3>
-                <p>Convert files between different formats easily and free</p>
-                <a href="https://convert.goodheart.tech" target="_blank">Convert Files →</a>
+                <p>Multi-format file conversion utility supporting documents, images, and media files.</p>
+                <a href="https://convert.goodheart.tech" target="_blank">Convert Files ↗</a>
             </div>
 
             <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/2721/2721812.png" alt="Speed icon" style="filter: invert(1) sepia(1) saturate(5) hue-rotate(320deg);">
+                <img src="https://cdn-icons-png.flaticon.com/512/1548/1548639.png" alt="Speed icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
                 <h3>Speed Test</h3>
-                <p>Check the speed of your current internet connection</p>
-                <a href="https://speed.goodheart.tech/" target="_blank">Test Speed →</a>
+                <p>Network performance testing tool measuring download/upload speeds and latency.</p>
+                <a href="https://speed.goodheart.tech/" target="_blank">Test Speed ↗</a>
             </div>
 
             <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/2721/2721843.png" alt="PDF icon" style="filter: invert(1) sepia(1) saturate(5) hue-rotate(340deg);">
+                <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
                 <h3>Stirling PDF</h3>
-                <p>Powerful PDF manipulation tools</p>
-                <a href="https://pdf.goodheart.tech/" target="_blank">Manage PDFs →</a>
+                <p>Advanced PDF manipulation suite for merging, splitting, compression, and format conversion.</p>
+                <a href="https://pdf.goodheart.tech/" target="_blank">Manage PDFs ↗</a>
             </div>
         </div>
 
         <footer>
-            <p>© <script>document.write(new Date().getFullYear())</script> <a href="https://goodhearttech.org/">Good Heart Tech</a>. All rights reserved.</p>
+            <p>© <script>document.write(new Date().getFullYear())</script> <a href="https://goodhearttech.org/" target="_blank">Good Heart Tech</a>. All rights reserved.</p>
         </footer>
     </div>
 </body>
