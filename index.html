@@ -1,1 +1,209 @@
-asdasd
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nonprofit Hub - Good Heart Tech</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --text-color: #1f2937;
+            --background-color: #f9fafb;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .logo-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .subheading {
+            font-size: 1.5rem;
+            color: #4b5563;
+            margin-bottom: 2rem;
+        }
+
+        .notice {
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .grid-main {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .grid-secondary {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            margin: 1rem 0;
+            color: var(--text-color);
+        }
+
+        .card p {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        .card a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: white;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        @media (max-width: 1024px) {
+            .grid-secondary {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid-main, .grid-secondary {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="https://goodhearttech.org/" class="logo-link">Visit Good Heart Tech</a>
+            <h1>Nonprofit Hub</h1>
+            <p class="subheading">presented by Good Heart Tech</p>
+            <div class="notice">
+                <p>All these web-based tools are free. Some require login - if you are a nonprofit partner, you can request access.</p>
+            </div>
+        </header>
+
+        <div class="grid grid-main">
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2721/2721629.png" alt="Toolkit icon">
+                <h3>Nonprofit Tech Toolkit</h3>
+                <p>Explore vendors, services, technologies (including free and discounted options), and technology-specific guides crafted for nonprofits. Use this page, the AI-powered search bar, or the sidebar to find your interest in nonprofit technology topics.</p>
+                <a href="https://learn.goodhearttech.org/" target="_blank">Learn More →</a>
+            </div>
+            
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2721/2721652.png" alt="Documentation icon">
+                <h3>Password & IT Documentation</h3>
+                <p>Password and IT Documentation management solution (login required)</p>
+                <a href="https://docs.goodhearttech.org/" target="_blank">Access Portal →</a>
+            </div>
+        </div>
+
+        <div class="grid grid-secondary">
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2721/2721689.png" alt="Security icon">
+                <h3>Password Pusher</h3>
+                <p>Convey sensitive information securely</p>
+                <a href="https://push.goodheart.tech/" target="_blank">Send Securely →</a>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2721/2721724.png" alt="Diagram icon">
+                <h3>Draw.io Instance</h3>
+                <p>Easy diagramming for your organization</p>
+                <a href="https://draw.goodheart.tech" target="_blank">Start Drawing →</a>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2721/2721795.png" alt="Convert icon">
+                <h3>File Converter</h3>
+                <p>Convert files between different formats easily and free</p>
+                <a href="https://convert.goodheart.tech" target="_blank">Convert Files →</a>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2721/2721812.png" alt="Speed icon">
+                <h3>Speed Test</h3>
+                <p>Check the speed of your current internet connection</p>
+                <a href="https://speed.goodheart.tech/" target="_blank">Test Speed →</a>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2721/2721843.png" alt="PDF icon">
+                <h3>Stirling PDF</h3>
+                <p>Powerful PDF manipulation tools</p>
+                <a href="https://pdf.goodheart.tech/" target="_blank">Manage PDFs →</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>© <script>document.write(new Date().getFullYear())</script> <a href="https://goodhearttech.org/">Good Heart Tech</a>. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
