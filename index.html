@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nonprofit Hub - Good Heart Tech</title>
+    <link rel="icon" type="image/svg+xml" href="https://graphics.goodhearttech.org/GHT/favicons/favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -90,6 +91,9 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             border: 1px solid var(--primary-light);
+            text-decoration: none;
+            color: var(--text-color);
+            display: block;
         }
 
         .card:hover {
@@ -97,6 +101,7 @@
             background: var(--card-hover);
             box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
             border-color: var(--accent-blue);
+            text-decoration: none;
         }
 
         .card img {
@@ -118,7 +123,7 @@
             min-height: 2.4em;
         }
 
-        .card a {
+        .card .link-text {
             color: var(--accent-blue);
             text-decoration: none;
             font-weight: 600;
@@ -130,7 +135,7 @@
             gap: 0.5rem;
         }
 
-        .card a:hover {
+        .card:hover .link-text {
             background: rgba(160, 221, 255, 0.1);
         }
 
@@ -178,63 +183,63 @@
     <div class="container">
         <header class="header">
             <h1>Nonprofit Hub</h1>
-            <p class="subheading">Presented by <a href="https://goodhearttech.org/" target="_blank"><img src="https://graphics.goodhearttech.org/GHT-AllWhiteLogo-phishsite.png" alt="Good Heart Tech" style="height: 30px; vertical-align: middle;"></a></p>
+            <p class="subheading">Presented by <a href="https://goodhearttech.org/" target="_blank"><img src="https://graphics.goodhearttech.org/GHT-AllWhiteLogo-phishsite.png" alt="Good Heart Tech" style="height: 40px; vertical-align: middle;"></a></p>
             <div class="notice">
                 <p>Welcome to our collection of free nonprofit tools! 🎉 Some tools require authentication - if you're a nonprofit partner, contact us for access or a password reset. Visit our website at <a href="https://goodhearttech.org/" target="_blank" style="color: var(--accent-blue);">goodhearttech.org</a> 💙</p>
             </div>
         </header>
 
         <div class="grid grid-main">
-            <div class="card">
+            <a href="https://learn.goodhearttech.org/" target="_blank" class="card">
                 <img src="https://cdn-icons-png.flaticon.com/512/702/702814.png" alt="Lightbulb icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
                 <h3>Nonprofit Tech Toolkit</h3>
                 <p>Curated collection of nonprofit-specific technology resources and guides.</p>
-                <a href="https://learn.goodhearttech.org/" target="_blank">Learn More ↗</a>
-            </div>
+                <span class="link-text">Learn More ↗</span>
+            </a>
             
-            <div class="card">
+            <a href="https://docs.goodhearttech.org/" target="_blank" class="card">
                 <img src="https://cdn-icons-png.flaticon.com/512/3767/3767094.png" alt="Documentation icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
                 <h3>Password & IT Documentation</h3>
                 <p>Secure platform for password management and IT documentation.</p>
-                <a href="https://docs.goodhearttech.org/" target="_blank">Access Portal <img src="https://cdn-icons-png.flaticon.com/512/483/483408.png" alt="Lock" class="lock-icon"> ↗</a>
-            </div>
+                <span class="link-text">Access Portal <img src="https://cdn-icons-png.flaticon.com/512/483/483408.png" alt="Lock" class="lock-icon"> ↗</span>
+            </a>
         </div>
 
         <div class="grid grid-secondary">
-            <div class="card">
+            <a href="https://push.goodheart.tech/" target="_blank" class="card">
                 <img src="https://cdn-icons-png.flaticon.com/512/2889/2889676.png" alt="Lock icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
                 <h3>Password Pusher</h3>
                 <p>Auto-expiring password sharing system - encrypted and secure.</p>
-                <a href="https://push.goodheart.tech/" target="_blank">Send Securely ↗</a>
-            </div>
+                <span class="link-text">Send Securely ↗</span>
+            </a>
 
-            <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/2919/2919592.png" alt="Pencil and Paper icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
-                <h3>Draw.io for Diagramming</h3>
-                <p>Browser-based diagramming tool for flowcharts, network diagrams, and process mapping.</p>
-                <a href="https://draw.goodheart.tech" target="_blank">Start Drawing ↗</a>
-            </div>
-
-            <div class="card">
+            <a href="https://convert.goodheart.tech" target="_blank" class="card">
                 <img src="https://cdn-icons-png.flaticon.com/512/8191/8191581.png" alt="File Transfer icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
                 <h3>File Converter</h3>
                 <p>Multi-format file conversion utility supporting documents, images, and media files.</p>
-                <a href="https://convert.goodheart.tech" target="_blank">Convert Files ↗</a>
-            </div>
+                <span class="link-text">Convert Files ↗</span>
+            </a>
 
-            <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/2058/2058072.png" alt="Speedometer icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
-                <h3>Speed Test</h3>
-                <p>Network performance testing tool measuring download/upload speeds and latency.</p>
-                <a href="https://speed.goodheart.tech/" target="_blank">Test Speed ↗</a>
-            </div>
-
-            <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/3997/3997613.png" alt="PDF icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
+            <a href="https://pdf.goodheart.tech/" target="_blank" class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/4208/4208479.png" alt="PDF icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
                 <h3>Stirling PDF</h3>
                 <p>Advanced PDF manipulation suite for merging, splitting, compression, and format conversion.</p>
-                <a href="https://pdf.goodheart.tech/" target="_blank">Manage PDFs ↗</a>
-            </div>
+                <span class="link-text">Manage PDFs ↗</span>
+            </a>
+
+            <a href="https://draw.goodheart.tech" target="_blank" class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2919/2919592.png" alt="Pencil and Paper icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
+                <h3>Draw.io for Diagramming</h3>
+                <p>Browser-based diagramming tool for flowcharts, network diagrams, and process mapping.</p>
+                <span class="link-text">Start Drawing ↗</span>
+            </a>
+
+            <a href="https://speed.goodheart.tech/" target="_blank" class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/4341/4341050.png" alt="Speedometer icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
+                <h3>Speed Test</h3>
+                <p>Network performance testing tool measuring download/upload speeds and latency.</p>
+                <span class="link-text">Test Speed ↗</span>
+            </a>
         </div>
 
         <footer>
