@@ -1,0 +1,39 @@
+# Nonprofit Hub - Good Heart Tech
+
+## Overview
+
+Welcome to the **Nonprofit Hub**, a collection of free web-based tools designed specifically for nonprofits. This project is developed and maintained by **Good Heart Tech**, a nonprofit organization dedicated to providing free IT services and resources to other nonprofits. Our mission is to empower nonprofits with the technology they need to thrive in their missions.
+
+## About Good Heart Tech
+
+Good Heart Tech is committed to supporting nonprofits by offering a range of IT services, including web development, technology consulting, and access to various online tools. We believe that technology should be accessible to all, especially those working towards social good. Our services are designed to help nonprofits streamline their operations, enhance their outreach, and ultimately make a greater impact in their communities.
+
+For more information about our services and to explore our full range of offerings, please visit our website: [Good Heart Tech](https://goodhearttech.org/).
+
+## Features
+
+The Nonprofit Hub includes the following tools:
+
+- **Nonprofit Tech Toolkit**: A curated collection of nonprofit-specific technology resources and guides.
+- **Password Pusher**: An auto-expiring password sharing system that is encrypted and secure.
+- **File Converter**: A multi-format file conversion utility supporting documents, images, and media files.
+- **Stirling PDF**: An advanced PDF manipulation suite for merging, splitting, compression, and format conversion.
+- **Draw.io for Diagramming**: A browser-based diagramming tool for flowcharts, network diagrams, and process mapping.
+- **Speed Test**: A network performance testing tool measuring download/upload speeds and latency.
+- **Web Check**: A comprehensive website analysis tool for security, performance, and technical metrics.
+- **QR Code Generator**: A tool to generate QR codes for URLs and WiFi networks with customizable options.
+- **Password & IT Documentation**: A secure platform for password management and IT documentation.
+
+## License
+
+This project is licensed under the GNU General Public License v3.0. You can view the full license text in the `LICENSE` file included in this repository.
+
+## Contributing
+
+We welcome contributions from the community! If you would like to contribute to this project, please fork the repository and submit a pull request. 
+
+## Contact
+
+For any inquiries or support, please reach out to us through our website: [Good Heart Tech](https://goodhearttech.org/).
+
+Thank you for your interest in the Nonprofit Hub and for supporting Good Heart Tech in our mission to empower nonprofits through technology!
