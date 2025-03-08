@@ -2,17 +2,25 @@
 
 ## Overview
 
-Welcome to the **Nonprofit Hub**, a collection of free web-based tools designed specifically for nonprofits. This project is developed and maintained by **Good Heart Tech**, a nonprofit organization dedicated to providing free IT services and resources to other nonprofits. Our mission is to empower nonprofits with the technology they need to thrive in their missions.
+This app was created and hosted by **Good Heart Tech**, a nonprofit dedicated to supporting other nonprofit organizations by providing accessible, technology-driven solutions. We believe in empowering nonprofits with the tools they need to operate effectively and securely in the digital age. 
 
-## About Good Heart Tech
+For more information about our mission and services, please visit our website: [Good Heart Tech](https://goodhearttech.org/).
 
-Good Heart Tech is committed to supporting nonprofits by offering a range of IT services, including web development, technology consulting, and access to various online tools. We believe that technology should be accessible to all, especially those working towards social good. Our services are designed to help nonprofits streamline their operations, enhance their outreach, and ultimately make a greater impact in their communities.
+## Donate
 
-For more information about our services and to explore our full range of offerings, please visit our website: [Good Heart Tech](https://goodhearttech.org/).
+Support our mission and help us provide free IT services to nonprofits. Your contributions make a difference! Donate here: [Donate to Good Heart Tech](https://goodhearttech.org/donate/).
 
-## Features
+## Tech Stack
 
-The Nonprofit Hub includes the following tools:
+This application is built using the following technologies:
+- HTML
+- CSS
+- JavaScript
+- Cloudflare Pages (for hosting)
+
+## Capabilities
+
+The Nonprofit Hub includes the following tools and features:
 
 - **Nonprofit Tech Toolkit**: A curated collection of nonprofit-specific technology resources and guides.
 - **Password Pusher**: An auto-expiring password sharing system that is encrypted and secure.
@@ -24,7 +32,13 @@ The Nonprofit Hub includes the following tools:
 - **QR Code Generator**: A tool to generate QR codes for URLs and WiFi networks with customizable options.
 - **Password & IT Documentation**: A secure platform for password management and IT documentation.
 
+## Open Source Commitment
+
+Good Heart Tech is committed to open-source software and the principles of transparency, collaboration, and accessibility. Our projects are released under the **GNU General Public License v3.0 (GPLv3)**, ensuring that anyone can use, modify, and distribute our code while upholding the same freedoms for others.
+
+We believe in empowering nonprofits and the broader community with open, secure, and reliable technology solutions. Contributions and feedback are always welcome! For details, see our LICENSE file.
+
 ## License
 
-This project is licensed under the GNU General Public License v3.0. You can view the full license text in the `LICENSE` file included in this repository.
+This project is licensed under the **GNU General Public License v3.0**. You can view the full license text in the `LICENSE` file included in this repository.
 
