@@ -1,4 +1,4 @@
-# Nonprofit Hub - Good Heart Tech
+# Nonprofit Tools Hub - Good Heart Tech
 
 ## Overview
 
