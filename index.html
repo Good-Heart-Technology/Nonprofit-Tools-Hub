@@ -288,13 +288,13 @@
 
         .welcome-screen h2 {
             margin-top: 2rem;
-            color: var(--accent-blue);
+            color: var(--text-color);
             margin-bottom: 1.5rem;
             font-size: 2.5rem;
         }
 
         .welcome-screen h3 {
-            color: var(--primary-light);
+            color: var(--accent-blue);
             margin-bottom: 1.5rem;
             font-size: 1.5rem;
         }
@@ -386,11 +386,11 @@
             color: var(--text-color);
             line-height: 1.8;
             flex: 1;
-            text-align: right;
+            text-align: left;
         }
 
         .disclaimer {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             color: #aaaaaa;
             font-style: italic;
             max-width: 700px;
@@ -406,6 +406,49 @@
         
         .disclaimer a:hover {
             color: var(--primary-light);
+        }
+        
+        .opensource-commitment {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .opensource-commitment p {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            max-width: 700px;
+            line-height: 1.6;
+        }
+        
+        .github-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--card-background);
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid var(--primary-color);
+            flex-shrink: 0;
+        }
+        
+        .github-link i {
+            font-size: 1.8rem;
+        }
+        
+        .github-link:hover {
+            transform: translateY(-2px);
+            color: var(--accent-blue);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         /* Responsive Design */
@@ -428,12 +471,12 @@
                 grid-template-columns: 1fr;
             }
 
-            .about-row {
+            .about-row, .opensource-commitment {
                 flex-direction: column;
                 gap: 1rem;
             }
             
-            .about-row p {
+            .about-row p, .opensource-commitment p {
                 text-align: center;
             }
         }
@@ -521,12 +564,20 @@
             <h2>Welcome to Nonprofit Tools Hub</h2>
             <h3>All the best nonprofit technology tools and resources.</h3>
             <div class="about-row">
-                <p><a href="https://goodhearttech.org" target="_blank">Good Heart Tech</a> is a nonprofit dedicated to empowering nonprofits with secure, efficient, and user-friendly technology solutions.</p>
                 <a href="https://goodhearttech.org/donate/" target="_blank" class="welcome-donate-button">
                     <i class="fas fa-heart"></i>
                     Support Our Mission
                 </a>
+                <p><a href="https://goodhearttech.org" target="_blank">Good Heart Tech</a> is a nonprofit dedicated to empowering nonprofits with secure, efficient, and user-friendly technology solutions.</p>
             </div>
+            
+            <div class="opensource-commitment">
+                <p>We embrace open-source principles—transparency, collaboration, and accessibility. Our projects use the GNU GPLv3, allowing free use, modification, and distribution while preserving these freedoms. </p>
+                <a href="https://github.com/Good-Heart-Technology/Nonprofit-Tools-Hub" target="_blank" class="github-link">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+
             <div class="disclaimer">
                 The tools provided in the Nonprofit Tools Hub are offered 'as is' without any guarantees or warranties, express or implied, and may be modified, discontinued, or become nonfunctional at any time without notice. View our <a href="https://goodhearttech.org/privacypolicy/" target="_blank">Privacy Policy</a>.
             </div>
