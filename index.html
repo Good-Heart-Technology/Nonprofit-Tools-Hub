@@ -17,8 +17,10 @@
             --card-hover: #394053;
             --accent-blue: #a0ddff;
             --gray: #808080;
+            --sidebar-width: 320px;
         }
         
+        /* Base Styles */
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
@@ -26,248 +28,517 @@
             padding: 0;
             background-color: var(--background-color);
             color: var(--text-color);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
+        /* Sidebar Styles */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--card-background);
+            height: 100vh;
+            padding: 1rem;
+            box-sizing: border-box;
+            border-right: 1px solid var(--primary-color);
+            overflow-y: auto;
+            overflow-x: hidden;
+            transition: width 0.3s ease;
+            position: relative;
         }
 
-        .header {
-            text-align: center;
-            margin-bottom: 1rem;
-            padding-top: 0;
+        .sidebar.collapsed {
+            width: 60px;
         }
 
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 0.25rem;
+        .sidebar.collapsed .nav-category,
+        .sidebar.collapsed .nav-item span,
+        .sidebar.collapsed .sidebar-header h1,
+        .sidebar.collapsed .footer-button span,
+        .sidebar.collapsed .sidebar-footer {
+            display: none;
+        }
+
+        .sidebar.collapsed .nav-item {
+            padding: 0.75rem;
+            justify-content: center;
+        }
+
+        /* Toggle Button Styles */
+        .toggle-sidebar {
+            position: fixed;
+            top: 1rem;
+            left: calc(var(--sidebar-width) - 16px);
+            background: var(--card-background);
+            border: 1px solid var(--primary-color);
             color: var(--text-color);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1001;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar.collapsed + .main-content .toggle-sidebar {
+            left: 44px;
+            transform: rotate(180deg);
+        }
+
+        .toggle-sidebar:hover {
+            background: var(--card-hover);
+        }
+
+        .toggle-sidebar i {
+            font-size: 1.2rem;
+        }
+
+        .sidebar-header {
+            text-align: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-header img {
+            height: 40px;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .sidebar-header a.logo-link:hover img {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+        }
+
+        .sidebar-header h1 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .sidebar-header a.home-link {
+            text-decoration: none;
             background: linear-gradient(45deg, var(--primary-color), var(--accent-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            transition: all 0.3s ease;
+            display: inline-block;
         }
 
-        .subheading {
-            font-size: 1.5rem;
-            color: #FFFFFF;
-            margin-bottom: 1rem;
+        .sidebar-header a.home-link:hover {
+            transform: translateY(-1px);
+            background: linear-gradient(45deg, var(--accent-blue), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        .notice {
-            background-color: #091D20;
-            padding: 1rem;
-            border-radius: 12px;
+        /* Navigation Items */
+        .nav-item {
+            padding: 0.5rem 1rem;
+            margin: 0.25rem 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-color);
+            text-decoration: none;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background: var(--card-hover);
+            color: var(--accent-blue);
+        }
+
+        .nav-item i {
+            width: 20px;
             text-align: center;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Tooltip Styles */
+        .nav-item span::after {
+            content: attr(data-tooltip);
+            position: fixed;
+            left: calc(var(--sidebar-width) + 10px);
+            top: attr(data-tooltip-top);
+            background: var(--card-background);
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+            width: auto;
+            min-width: 200px;
+            max-width: 300px;
+            border: 1px solid var(--primary-color);
+            z-index: 1000;
+            pointer-events: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            white-space: normal;
+            line-height: 1.4;
+        }
+
+        .nav-item:hover span::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sidebar.collapsed .nav-item:hover::after {
+            content: attr(data-label);
+            position: fixed;
+            left: 70px;
+            top: attr(data-tooltip-top);
+            background: var(--card-background);
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            border: 1px solid var(--primary-color);
+            white-space: nowrap;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            line-height: 1.4;
+            min-width: fit-content;
+        }
+
+        /* Category Styles */
+        .nav-category {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin: 1rem 0 0.25rem 1rem;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+        }
+
+        /* Bottom Buttons */
+        .sidebar-footer {
+            margin-top: 2rem;
+            padding: 1rem;
+            border-top: 1px solid var(--primary-color);
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .footer-button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .github-button {
+            background: var(--card-hover);
+            color: var(--text-color);
+        }
+
+        .github-button:hover {
+            background: #2f3542;
+        }
+
+        .donate-button {
+            background: var(--primary-color);
+            color: var(--text-color);
+        }
+
+        .donate-button:hover {
+            background: #5b73ff;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex: 1;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #content-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: var(--background-color);
+        }
+
+        .welcome-screen {
+            padding: 2rem;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow-y: auto;
+        }
+
+        .welcome-screen h2 {
+            margin-top: 2rem;
+            color: var(--accent-blue);
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+        }
+
+        .welcome-screen h3 {
+            color: var(--primary-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .welcome-screen p {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        .welcome-screen a {
+            color: var(--accent-blue);
+            text-decoration: underline;
+            transition: all 0.3s ease;
+        }
+
+        .welcome-screen a:not(.welcome-donate-button) {
+            color: var(--accent-blue);
+            text-decoration: underline;
+            transition: all 0.3s ease;
+        }
+
+        .welcome-screen a:not(.welcome-donate-button):hover {
+            color: var(--primary-color);
+        }
+
+        .welcome-cta {
+            margin-top: 2rem;
+        }
+
+        .welcome-donate-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            background: var(--primary-color);
+            color: var(--text-color);
+            text-decoration: none !important;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .welcome-donate-button:hover {
+            background: #5b73ff;
+        }
+
+        .welcome-donate-button i {
+            font-size: 1rem;
+        }
+
+        .welcome-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .feature-card {
+            background: var(--card-background);
+            padding: 1.5rem;
+            border-radius: 8px;
             border: 1px solid var(--primary-color);
         }
 
-        .notice p {
-            font-size: 1.1rem;
-            margin: 0;
-            color: #FFFFFF;
-        }
-
-        .grid {
-            display: grid;
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .grid-main {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .grid-secondary {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        .card {
-            background: var(--card-background);
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--primary-light);
-            text-decoration: none;
-            color: var(--text-color);
-            display: block;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            background: var(--card-hover);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
-            border-color: var(--accent-blue);
-            text-decoration: none;
-        }
-
-        .card img {
-            width: 56px;
-            height: 56px;
-            margin-bottom: 1rem;
-        }
-
-        .card h3 {
-            margin: 0.5rem 0;
-            color: var(--text-color);
-            font-size: 1.3rem;
-        }
-
-        .card p {
-            color: #FFFFFF;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            min-height: 2.4em;
-        }
-
-        .card .link-text {
+        .feature-card h3 {
             color: var(--accent-blue);
-            text-decoration: none;
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            transition: all 0.2s;
-            display: inline-flex;
+            margin-bottom: 1rem;
+        }
+
+        .about-row {
+            display: flex;
             align-items: center;
-            gap: 0.5rem;
+            justify-content: center;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin-bottom: 2rem;
         }
 
-        .card:hover .link-text {
-            background: rgba(160, 221, 255, 0.1);
+        .about-row p {
+            margin: 0;
+            font-size: 1rem;
+            color: var(--text-color);
+            line-height: 1.8;
+            flex: 1;
+            text-align: right;
         }
 
-        .lock-icon {
-            width: 8px;
-            height: 8px;
-            margin-top: 1px;
-            filter: invert(80%) sepia(32%) saturate(838%) hue-rotate(176deg) brightness(103%) contrast(101%);
-        }
-
-        footer {
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #aaaaaa;
+            font-style: italic;
+            max-width: 700px;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            padding-top: 1rem;
             text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-            color: #FFFFFF;
+        }
+        
+        .disclaimer a {
+            color: #aaaaaa;
+        }
+        
+        .disclaimer a:hover {
+            color: var(--primary-light);
         }
 
-        footer a {
-            color: var(--accent-blue);
-            text-decoration: none;
-        }
-
-        @media (max-width: 1024px) {
-            .grid-secondary {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .grid-main, .grid-secondary {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                max-height: 300px;
+            }
+
+            .main-content {
+                height: calc(100vh - 300px);
+            }
+
+            .welcome-features {
                 grid-template-columns: 1fr;
             }
-            
-            .container {
-                padding: 1rem;
-            }
 
-            h1 {
-                font-size: 2.5rem;
+            .about-row {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .about-row p {
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>Free Web Tools for Nonprofits</h1>
-            <p class="subheading" style="margin-bottom: 1rem;">Provided by <a href="https://goodhearttech.org/" target="_blank"><img src="https://graphics.goodhearttech.org/GHT-AllWhiteLogo-phishsite.png" alt="Good Heart Tech" style="height: 40px; vertical-align: middle;"></a></p>
-            <div class="notice">
-                <p>Welcome to Good Heart Tech's collection of free web-based tools for nonprofits! 🎉 Visit our website at <a href="https://goodhearttech.org/" target="_blank" style="color: var(--accent-blue);">goodhearttech.org</a> 💙</p>
-            </div>
-        </header>
-
-        <div class="grid grid-secondary">
-            <a href="https://learn.goodhearttech.org/" target="_blank" class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/702/702814.png" alt="Lightbulb icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
-                <h3>Nonprofit Tech Toolkit</h3>
-                <p>Curated collection of nonprofit-specific technology resources and guides.</p>
-                <span class="link-text">Explore Nonprofit Tech Solutions ↗</span>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <a href="https://goodhearttech.org" target="_blank" class="logo-link">
+                <img src="https://graphics.goodhearttech.org/GHT-AllWhiteLogo-phishsite.png" alt="Good Heart Tech">
             </a>
-            <a href="https://push.goodheart.tech/" target="_blank" class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/2889/2889676.png" alt="Lock icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
-                <h3>Password Pusher</h3>
-                <p>Auto-expiring password sharing system - encrypted and secure.</p>
-                <span class="link-text">Send Securely ↗</span>
+            <h1><a href="#" class="home-link">Nonprofit Tools Hub</a></h1>
+        </div>
+        <nav>
+            <div class="nav-category">Security & Privacy</div>
+            <a href="https://push.goodheart.tech/" class="nav-item" target="_blank" data-label="Password Pusher">
+                <i class="fas fa-key"></i>
+                <span data-tooltip="Securely share passwords with automatic expiration">
+                    Password Pusher
+                    <i class="fa-solid fa-up-right-from-square" style="margin-left: 4px; font-size: 0.8em;"></i>
+                </span>
+            </a>
+            <a href="https://password.nonprofittools.org/" class="nav-item" data-url="https://password.nonprofittools.org/" data-label="Password Generator">
+                <i class="fas fa-asterisk"></i>
+                <span data-tooltip="Create strong, secure passwords with our password generator">Password Generator</span>
             </a>
 
-            <a href="https://convert.goodheart.tech" target="_blank" class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/8191/8191581.png" alt="File Transfer icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
-                <h3>File Converter</h3>
-                <p>Multi-format file conversion utility supporting documents, images, and media files.</p>
-                <span class="link-text">Convert Files ↗</span>
+            <div class="nav-category">Document & Media Tools</div>
+            <a href="https://convert.goodheart.tech" class="nav-item" data-url="https://convert.goodheart.tech" data-label="File Converter">
+                <i class="fas fa-exchange-alt"></i>
+                <span data-tooltip="Convert files between different formats easily">File Converter</span>
+            </a>
+            <a href="https://pdf.goodheart.tech/" class="nav-item" data-url="https://pdf.goodheart.tech/" data-label="PDF Editor">
+                <i class="fas fa-file-pdf"></i>
+                <span data-tooltip="Comprehensive PDF editing and manipulation tools">PDF Editor</span>
+            </a>
+            <a href="https://draw.goodheart.tech" class="nav-item" data-url="https://draw.goodheart.tech" data-label="Draw.io">
+                <i class="fas fa-pencil-alt"></i>
+                <span data-tooltip="Create professional diagrams, flowcharts, and visual content">Draw.io</span>
+            </a>
+            <a href="https://qr.goodheart.tech/" class="nav-item" data-url="https://qr.goodheart.tech/" data-label="QR Code Generator">
+                <i class="fas fa-qrcode"></i>
+                <span data-tooltip="Generate QR codes for URLs and WiFi networks">QR Code Generator</span>
             </a>
 
-            <a href="https://pdf.goodheart.tech/" target="_blank" class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/4726/4726010.png" alt="PDF icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
-                <h3>Stirling PDF</h3>
-                <p>Advanced PDF manipulation suite for merging, splitting, compression, and format conversion.</p>
-                <span class="link-text">Manage PDFs ↗</span>
+            <div class="nav-category">Performance & Analysis</div>
+            <a href="https://speed.goodheart.tech/" class="nav-item" data-url="https://speed.goodheart.tech/" data-label="Speed Test">
+                <i class="fas fa-tachometer-alt"></i>
+                <span data-tooltip="Check your internet connection speed and performance">Speed Test</span>
+            </a>
+            <a href="https://webcheck.goodheart.tech/" class="nav-item" data-url="https://webcheck.goodheart.tech/" data-label="Web Check">
+                <i class="fas fa-check-circle"></i>
+                <span data-tooltip="Analyze website security, performance, and technical metrics">Web Check</span>
+            </a>
+            <a href="https://dns.nonprofittools.org/" class="nav-item" data-url="https://dns.nonprofittools.org/" data-label="Domain Analyzer">
+                <i class="fas fa-heart-circle-check"></i>
+                <span data-tooltip="Analyze domain security, deliverability, and DNS health">Domain Analyzer</span>
             </a>
 
-            <a href="https://draw.goodheart.tech" target="_blank" class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/2919/2919592.png" alt="Pencil and Paper icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
-                <h3>Draw.io for Diagramming</h3>
-                <p>Browser-based diagramming tool for flowcharts, network diagrams, and process mapping.</p>
-                <span class="link-text">Start Drawing ↗</span>
+            <div class="nav-category">Informational Resources</div>
+            <a href="https://learn.goodhearttech.org/" class="nav-item" target="_blank" data-label="Nonprofit Tech Toolkit">
+                <i class="fas fa-lightbulb"></i>
+                <span data-tooltip="Access our comprehensive collection of nonprofit technology resources and guides">
+                    Nonprofit Tech Toolkit
+                    <i class="fa-solid fa-up-right-from-square" style="margin-left: 4px; font-size: 0.8em;"></i>
+                </span>
             </a>
-
-            <a href="https://speed.goodheart.tech/" target="_blank" class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/384/384276.png" alt="Running person icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
-                <h3>Speed Test</h3>
-                <p>Network performance testing tool measuring download/upload speeds and latency.</p>
-                <span class="link-text">Test Speed ↗</span>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="https://github.com/Good-Heart-Technology/Nonprofit-Tools-Hub" target="_blank" class="footer-button github-button">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
             </a>
-
-            <a href="https://webcheck.goodheart.tech/" target="_blank" class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/8968/8968523.png" alt="Check mark icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
-                <h3>Web Check</h3>
-                <p>Comprehensive website analysis tool for security, performance, and technical metrics.</p>
-                <span class="link-text">Analyze Website ↗</span>
-            </a>
-
-            <a href="https://dns.nonprofittools.org/" target="_blank" class="card">
-                <i class="fa-solid fa-heart-circle-check" style="font-size: 56px; color: var(--accent-blue); margin-bottom: 1rem; display: block;"></i>
-                <h3>Domain & DNS Health Check</h3>
-                <p>DNS checker analyzes public records to assess the domain's security, deliverability, and reputation against best practices.</p>
-                <span class="link-text">Analyze Domain ↗</span>
-            </a>
-
-            <a href="https://qr.goodheart.tech/" target="_blank" class="card">
-                <img src="qr.goodheart.tech.png" alt="QR Code icon" style="filter:  invert(67%) sepia(16%) ">
-                <h3>QR Code Generator</h3>
-                <p>Generate QR codes for URLs and WiFi networks with customizable options.</p>
-                <span class="link-text">Create QR Code ↗</span>
-            </a>
-
-            <a href="https://docs.goodhearttech.org/" target="_blank" class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/3767/3767094.png" alt="Documentation icon" style="filter: brightness(0) saturate(100%) invert(67%) sepia(16%) saturate(2163%) hue-rotate(199deg) brightness(99%) contrast(96%);">
-                <h3>Password & IT Documentation</h3>
-                <p>Secure platform for password management and IT documentation. If you're a Good Heart Tech nonprofit, contact us for access or a password reset. </p>
-                <span class="link-text">Access Portal (Login Required)<img src="https://cdn-icons-png.flaticon.com/512/483/483408.png" alt="Lock" class="lock-icon"> ↗</span>
+            <a href="https://goodhearttech.org/donate/" target="_blank" class="footer-button donate-button">
+                <i class="fas fa-heart"></i>
+                <span>Donate</span>
             </a>
         </div>
-
-        <footer>
-            <a href="https://goodhearttech.org/" target="_blank"><img src="https://graphics.goodhearttech.org/GHT/Icon-Large.png" alt="Good Heart Tech Icon" style="height: 40px; margin-bottom: 1rem;"></a>
-            <a href="https://github.com/Good-Heart-Technology/NonprofitHub" target="_blank" style="display: inline-block; margin-left: 20px;"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" style="height: 40px; margin-bottom: 1rem; filter: invert(100%);"></a>
-            <p>© <script>document.write(new Date().getFullYear())</script> <a href="https://goodhearttech.org/" target="_blank">Good Heart Tech</a>. All rights reserved.</p>
-            <p>ℹ️ Disclaimer: The tools on this site are for informational use only and do not constitute professional advice. Use at your own discretion.</p>
-        </footer>
     </div>
+    <main class="main-content">
+        <div class="toggle-sidebar">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="welcome-screen" id="welcome-screen">
+            <h2>Welcome to Nonprofit Tools Hub</h2>
+            <h3>All the best nonprofit technology tools and resources.</h3>
+            <div class="about-row">
+                <p><a href="https://goodhearttech.org" target="_blank">Good Heart Tech</a> is a nonprofit dedicated to empowering nonprofits with secure, efficient, and user-friendly technology solutions.</p>
+                <a href="https://goodhearttech.org/donate/" target="_blank" class="welcome-donate-button">
+                    <i class="fas fa-heart"></i>
+                    Support Our Mission
+                </a>
+            </div>
+            <div class="disclaimer">
+                The tools provided in the Nonprofit Tools Hub are offered 'as is' without any guarantees or warranties, express or implied, and may be modified, discontinued, or become nonfunctional at any time without notice. View our <a href="https://goodhearttech.org/privacypolicy/" target="_blank">Privacy Policy</a>.
+            </div>
+        </div>
+        <iframe 
+            id="content-frame" 
+            style="display: none;" 
+            title="Tool Content"
+            allow="clipboard-read; clipboard-write"
+            sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-downloads allow-modals allow-popups-to-escape-sandbox">
+        </iframe>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
