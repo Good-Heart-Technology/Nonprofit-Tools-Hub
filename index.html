@@ -642,6 +642,7 @@
             .sidebar.mobile-visible {
                 transform: translateY(0);
                 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+                padding-top: 3.5rem; /* Add padding at the top to avoid covering the hamburger menu */
             }
 
             .hamburger-menu {
@@ -649,7 +650,7 @@
                 position: fixed;
                 top: 1rem;
                 right: 1rem;
-                z-index: 1001;
+                z-index: 1050;
                 width: 44px;
                 height: 44px;
                 border-radius: 50%;
@@ -664,12 +665,20 @@
                 -webkit-tap-highlight-color: transparent; /* No highlight on tap */
             }
 
+            .hamburger-menu i {
+                /* Ensure icon is always visible */
+                position: relative;
+                z-index: 1051;
+                font-size: 1.5rem;
+            }
+            
             .hamburger-menu:hover {
                 background: var(--card-hover);
             }
 
-            .hamburger-menu i {
-                font-size: 1.5rem;
+            /* Styles for the X icon (close button) */
+            .hamburger-menu .fa-times {
+                color: var(--accent-blue);
             }
 
             .sidebar-header {
@@ -764,9 +773,10 @@
                 position: relative;
             }
 
+            /* Hide tooltips on mobile */
             .nav-item span::after,
             .sidebar.collapsed .nav-item::after {
-                margin-top: 0.5rem;
+                display: none;
             }
         }
 
