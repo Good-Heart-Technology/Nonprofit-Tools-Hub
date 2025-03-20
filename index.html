@@ -650,7 +650,7 @@
                 position: fixed;
                 top: 1rem;
                 right: 1rem;
-                z-index: 1050;
+                z-index: 9999; /* Extremely high z-index to ensure it's on top */
                 width: 44px;
                 height: 44px;
                 border-radius: 50%;
@@ -665,11 +665,15 @@
                 -webkit-tap-highlight-color: transparent; /* No highlight on tap */
             }
 
+            /* Add a highlight effect around the hamburger when menu is open */
+            .sidebar.mobile-visible + .main-content .hamburger-menu {
+                border-color: var(--accent-blue);
+                box-shadow: 0 0 0 4px rgba(160, 221, 255, 0.3);
+            }
+
             .hamburger-menu i {
-                /* Ensure icon is always visible */
-                position: relative;
-                z-index: 1051;
                 font-size: 1.5rem;
+                z-index: 10000; /* Even higher z-index */
             }
             
             .hamburger-menu:hover {

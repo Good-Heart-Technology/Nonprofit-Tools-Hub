@@ -79,11 +79,14 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Toggle icon between hamburger and X
         const icon = hamburgerMenu.querySelector('i');
-        if (icon.classList.contains('fa-bars')) {
-            icon.classList.remove('fa-bars');
+        
+        // Always remove both classes first, then add the correct one
+        icon.classList.remove('fa-bars');
+        icon.classList.remove('fa-times');
+        
+        if (sidebar.classList.contains('mobile-visible')) {
             icon.classList.add('fa-times');
         } else {
-            icon.classList.remove('fa-times');
             icon.classList.add('fa-bars');
         }
     };
