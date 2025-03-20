@@ -635,6 +635,8 @@
                 z-index: 1000;
                 transform: translateY(-100%);
                 transition: transform 0.3s ease;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
             }
 
             .sidebar.mobile-visible {
@@ -648,8 +650,8 @@
                 top: 1rem;
                 right: 1rem;
                 z-index: 1001;
-                width: 40px;
-                height: 40px;
+                width: 44px;
+                height: 44px;
                 border-radius: 50%;
                 background: var(--card-background);
                 border: 1px solid var(--primary-color);
@@ -659,6 +661,7 @@
                 cursor: pointer;
                 transition: all 0.3s ease;
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+                -webkit-tap-highlight-color: transparent; /* No highlight on tap */
             }
 
             .hamburger-menu:hover {
