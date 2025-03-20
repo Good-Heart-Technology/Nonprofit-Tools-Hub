@@ -5,7 +5,6 @@ const welcomeScreen = document.getElementById('welcome-screen');
 const homeLink = document.querySelector('.home-link');
 const sidebar = document.querySelector('.sidebar');
 const toggleButton = document.querySelector('.toggle-sidebar');
-const hamburgerMenu = document.querySelector('.hamburger-menu');
 
 // Check if sidebar has scrollable content
 const updateScrollIndicator = () => {
@@ -66,6 +65,19 @@ const handleSidebarToggle = () => {
     updateTooltipPosition();
 };
 
+// Mobile hamburger menu toggle
+const handleMobileMenuToggle = () => {
+    sidebar.classList.toggle('mobile-visible');
+    const icon = document.querySelector('.hamburger-menu i');
+    if (icon.classList.contains('fa-bars')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+    } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+    }
+};
+
 // Initialize
 const initializeApp = () => {
     // Restore sidebar state
@@ -86,28 +98,22 @@ const initializeApp = () => {
     sidebar.addEventListener('scroll', updateScrollIndicator);
     window.addEventListener('resize', updateScrollIndicator);
 
-    // Toggle sidebar on mobile
-    hamburgerMenu.addEventListener('click', function() {
-        sidebar.classList.toggle('mobile-visible');
-        // Toggle hamburger icon between bars and times
-        const icon = hamburgerMenu.querySelector('i');
-        if (icon.classList.contains('fa-bars')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
-    });
+    // Set up hamburger menu for mobile
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    if (hamburgerMenu) {
+        hamburgerMenu.addEventListener('click', handleMobileMenuToggle);
+    }
 
     // Mobile: Close sidebar when a navigation item is clicked
     navItems.forEach(item => {
         item.addEventListener('click', function() {
             if (window.innerWidth <= 768) {
                 sidebar.classList.remove('mobile-visible');
-                const icon = hamburgerMenu.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+                const icon = document.querySelector('.hamburger-menu i');
+                if (icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
             }
         });
     });
@@ -127,9 +133,11 @@ const initializeApp = () => {
         // On mobile, also hide the sidebar if it's open
         if (window.innerWidth <= 768) {
             sidebar.classList.remove('mobile-visible');
-            const icon = hamburgerMenu.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
+            const icon = document.querySelector('.hamburger-menu i');
+            if (icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         }
     });
 
@@ -156,9 +164,11 @@ const initializeApp = () => {
             !hamburgerMenu.contains(e.target) && 
             sidebar.classList.contains('mobile-visible')) {
             sidebar.classList.remove('mobile-visible');
-            const icon = hamburgerMenu.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
+            const icon = document.querySelector('.hamburger-menu i');
+            if (icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         }
     });
 };
