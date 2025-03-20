@@ -5,6 +5,7 @@ const welcomeScreen = document.getElementById('welcome-screen');
 const homeLink = document.querySelector('.home-link');
 const sidebar = document.querySelector('.sidebar');
 const toggleButton = document.querySelector('.toggle-sidebar');
+const hamburgerMenu = document.querySelector('.hamburger-menu');
 
 // Check if sidebar has scrollable content
 const updateScrollIndicator = () => {
@@ -84,6 +85,82 @@ const initializeApp = () => {
     toggleButton.addEventListener('click', handleSidebarToggle);
     sidebar.addEventListener('scroll', updateScrollIndicator);
     window.addEventListener('resize', updateScrollIndicator);
+
+    // Toggle sidebar on mobile
+    hamburgerMenu.addEventListener('click', function() {
+        sidebar.classList.toggle('mobile-visible');
+        // Toggle hamburger icon between bars and times
+        const icon = hamburgerMenu.querySelector('i');
+        if (icon.classList.contains('fa-bars')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+
+    // Mobile: Close sidebar when a navigation item is clicked
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                sidebar.classList.remove('mobile-visible');
+                const icon = hamburgerMenu.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    });
+
+    // Return to home screen when logo/title is clicked
+    homeLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Remove active class from all nav items
+        navItems.forEach(navItem => navItem.classList.remove('active'));
+        
+        // Show welcome screen, hide iframe
+        welcomeScreen.style.display = 'flex';
+        contentFrame.style.display = 'none';
+        contentFrame.src = '';
+        
+        // On mobile, also hide the sidebar if it's open
+        if (window.innerWidth <= 768) {
+            sidebar.classList.remove('mobile-visible');
+            const icon = hamburgerMenu.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+
+    // Check if sidebar needs scroll indicator
+    function checkScroll() {
+        if (sidebar.scrollHeight > sidebar.clientHeight) {
+            sidebar.classList.add('has-scroll');
+        } else {
+            sidebar.classList.remove('has-scroll');
+        }
+    }
+    
+    // Initial check
+    checkScroll();
+    
+    // Listen for resize events
+    window.addEventListener('resize', checkScroll);
+    
+    // Listen for body clicks to close mobile sidebar
+    document.body.addEventListener('click', function(e) {
+        // Close mobile sidebar when clicking outside of it
+        if (window.innerWidth <= 768 && 
+            !sidebar.contains(e.target) && 
+            !hamburgerMenu.contains(e.target) && 
+            sidebar.classList.contains('mobile-visible')) {
+            sidebar.classList.remove('mobile-visible');
+            const icon = hamburgerMenu.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
 };
 
 // Run initialization when DOM is loaded
