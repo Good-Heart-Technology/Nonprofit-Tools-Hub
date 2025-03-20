@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nonprofit Hub - Good Heart Tech</title>
     <link rel="icon" type="image/svg+xml" href="https://graphics.goodhearttech.org/GHT/favicons/favicon.svg">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
@@ -22,7 +22,7 @@
         
         /* Base Styles */
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Noto Sans', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
@@ -31,6 +31,61 @@
             display: flex;
             height: 100vh;
             overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            letter-spacing: -0.01em;
+        }
+
+        /* Additional font smoothing for specific text elements */
+        h1, h2, h3, p, span, a, .nav-item, .nav-category {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            letter-spacing: -0.01em;
+        }
+
+        /* Adjust specific text elements */
+        .nav-item {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .nav-category {
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+        }
+
+        .sidebar-header h1 {
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .welcome-screen h3 {
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-item span::after,
+        .sidebar.collapsed .nav-item::after {
+            font-weight: 400;
+            letter-spacing: 0;
+        }
+
+        .footer-button {
+            font-weight: 500;
+            letter-spacing: 0;
+        }
+
+        .welcome-donate-button {
+            font-weight: 500;
+            letter-spacing: 0;
+        }
+
+        .disclaimer {
+            font-weight: 400;
+            letter-spacing: 0;
         }
 
         /* Sidebar Styles */
@@ -45,9 +100,50 @@
             overflow-x: hidden;
             transition: width 0.3s ease;
             position: relative;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-color) var(--card-background);
+            scroll-behavior: smooth;
         }
 
-        .sidebar.collapsed {
+        /* Webkit scrollbar styles */
+        .sidebar::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: var(--card-background);
+            border-radius: 4px;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-blue);
+        }
+
+        /* Scroll indicator */
+        .sidebar::after {
+            content: '';
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: var(--sidebar-width);
+            height: 40px;
+            background: linear-gradient(transparent, var(--card-background));
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .sidebar.has-scroll::after {
+            opacity: 1;
+        }
+
+        .sidebar.collapsed::after {
             width: 60px;
         }
 
@@ -164,27 +260,33 @@
         }
 
         /* Tooltip Styles */
+        .nav-item {
+            position: relative;
+        }
+
         .nav-item span::after {
             content: attr(data-tooltip);
             position: fixed;
-            left: calc(var(--sidebar-width) + 10px);
-            top: attr(data-tooltip-top);
+            left: var(--sidebar-width);
+            top: 50%;
+            transform: translateY(-50%);
             background: var(--card-background);
             padding: 0.75rem 1rem;
             border-radius: 4px;
             font-size: 0.8rem;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
             width: auto;
             min-width: 200px;
             max-width: 300px;
             border: 1px solid var(--primary-color);
-            z-index: 1000;
+            z-index: 2000;
             pointer-events: none;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
             white-space: normal;
             line-height: 1.4;
+            margin-left: 16px;
         }
 
         .nav-item:hover span::after {
@@ -192,21 +294,32 @@
             visibility: visible;
         }
 
-        .sidebar.collapsed .nav-item:hover::after {
+        .sidebar.collapsed .nav-item::after {
             content: attr(data-label);
             position: fixed;
-            left: 70px;
-            top: attr(data-tooltip-top);
+            left: 60px;
+            top: 50%;
+            transform: translateY(-50%);
             background: var(--card-background);
             padding: 0.75rem 1rem;
             border-radius: 4px;
             font-size: 0.8rem;
+            opacity: 0;
+            visibility: hidden;
             border: 1px solid var(--primary-color);
             white-space: nowrap;
-            z-index: 1000;
+            z-index: 2000;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
             line-height: 1.4;
             min-width: fit-content;
+            pointer-events: none;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            margin-left: 16px;
+        }
+
+        .sidebar.collapsed .nav-item:hover::after {
+            opacity: 1;
+            visibility: visible;
         }
 
         /* Category Styles */
@@ -274,7 +387,7 @@
         }
 
         .welcome-screen {
-            padding: 2rem;
+            padding: 3rem 2rem 2rem 2rem;
             text-align: center;
             height: 100%;
             display: flex;
@@ -284,90 +397,23 @@
             max-width: 800px;
             margin: 0 auto;
             overflow-y: auto;
+            gap: 2rem;
         }
 
         .welcome-screen h2 {
-            margin-top: 2rem;
+            margin: 0;
             color: var(--text-color);
-            margin-bottom: 1.5rem;
             font-size: 2.5rem;
+            line-height: 1.2;
         }
 
         .welcome-screen h3 {
             color: var(--accent-blue);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
+            margin: 0.5rem 0 0 0;
+            font-size: 2rem;
         }
 
-        .welcome-screen p {
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-            color: var(--text-color);
-            max-width: 600px;
-            line-height: 1.8;
-        }
-
-        .welcome-screen a {
-            color: var(--accent-blue);
-            text-decoration: underline;
-            transition: all 0.3s ease;
-        }
-
-        .welcome-screen a:not(.welcome-donate-button) {
-            color: var(--accent-blue);
-            text-decoration: underline;
-            transition: all 0.3s ease;
-        }
-
-        .welcome-screen a:not(.welcome-donate-button):hover {
-            color: var(--primary-color);
-        }
-
-        .welcome-cta {
-            margin-top: 2rem;
-        }
-
-        .welcome-donate-button {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
-            font-weight: 600;
-            background: var(--primary-color);
-            color: var(--text-color);
-            text-decoration: none !important;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .welcome-donate-button:hover {
-            background: #5b73ff;
-        }
-
-        .welcome-donate-button i {
-            font-size: 1rem;
-        }
-
-        .welcome-features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-            text-align: left;
-        }
-
-        .feature-card {
-            background: var(--card-background);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid var(--primary-color);
-        }
-
-        .feature-card h3 {
-            color: var(--accent-blue);
+        .welcome-header {
             margin-bottom: 1rem;
         }
 
@@ -377,16 +423,25 @@
             justify-content: center;
             gap: 1.5rem;
             max-width: 800px;
-            margin-bottom: 2rem;
+            padding: 0.5rem 0;
+        }
+        
+        .opensource-commitment {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            max-width: 800px;
+            padding: 0.5rem 0;
+            text-align: center;
         }
 
-        .about-row p {
-            margin: 0;
-            font-size: 1rem;
+        .opensource-commitment p {
+            font-size: 0.9rem;
             color: var(--text-color);
-            line-height: 1.8;
-            flex: 1;
-            text-align: left;
+            max-width: 700px;
+            line-height: 1.6;
+            margin: 0;
         }
 
         .disclaimer {
@@ -394,9 +449,8 @@
             color: #aaaaaa;
             font-style: italic;
             max-width: 700px;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-            padding-top: 1rem;
+            margin: 0;
+            padding: 0.5rem 0 1rem 0;
             text-align: center;
         }
         
@@ -406,24 +460,6 @@
         
         .disclaimer a:hover {
             color: var(--primary-light);
-        }
-        
-        .opensource-commitment {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.5rem;
-            max-width: 800px;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-        
-        .opensource-commitment p {
-            font-size: 0.9rem;
-            color: var(--text-color);
-            max-width: 700px;
-            line-height: 1.6;
         }
         
         .github-link {
@@ -451,6 +487,112 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
+        .welcome-screen p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--text-color);
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .welcome-screen a {
+            color: var(--accent-blue);
+            text-decoration: underline;
+            transition: all 0.3s ease;
+        }
+
+        .welcome-screen a:not(.welcome-donate-button) {
+            color: var(--accent-blue);
+            text-decoration: underline;
+            transition: all 0.3s ease;
+        }
+
+        .welcome-screen a:not(.welcome-donate-button):hover {
+            color: var(--primary-color);
+        }
+
+        .welcome-donate-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            background: var(--primary-color);
+            color: var(--text-color);
+            text-decoration: none !important;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .welcome-donate-button:hover {
+            background: #5b73ff;
+        }
+
+        .welcome-donate-button i {
+            font-size: 1rem;
+        }
+
+        /* Curved Arrow Styles */
+        .try-tools-prompt {
+            position: absolute;
+            left: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-blue);
+            font-size: 1.1rem;
+            opacity: 0.9;
+            animation: fadeInOut 3s ease-in-out infinite;
+        }
+
+        .curved-arrow {
+            position: relative;
+            width: 40px;
+            height: 40px;
+        }
+
+        .curved-arrow::before {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 3px solid var(--accent-blue);
+            border-right: none;
+            border-bottom: none;
+            left: 0;
+            top: 50%;
+            border-radius: 100% 0 0 0;
+            transform: translateY(-50%) rotate(-45deg);
+        }
+
+        .curved-arrow::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-left: 3px solid var(--accent-blue);
+            border-bottom: 3px solid var(--accent-blue);
+            left: 2px;
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.5; transform: translateY(-50%) translateX(0); }
+            50% { opacity: 1; transform: translateY(-50%) translateX(-10px); }
+        }
+
+        @media (max-width: 1200px) {
+            .try-tools-prompt {
+                display: none;
+            }
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             body {
@@ -467,17 +609,23 @@
                 height: calc(100vh - 300px);
             }
 
-            .welcome-features {
-                grid-template-columns: 1fr;
+            .welcome-screen {
+                gap: 1.5rem;
+                padding: 1.5rem;
             }
 
             .about-row, .opensource-commitment {
                 flex-direction: column;
                 gap: 1rem;
+                padding: 0;
             }
             
             .about-row p, .opensource-commitment p {
                 text-align: center;
+            }
+
+            .welcome-screen p {
+                font-size: 1rem;
             }
         }
     </style>
@@ -561,8 +709,14 @@
             <i class="fas fa-chevron-left"></i>
         </div>
         <div class="welcome-screen" id="welcome-screen">
-            <h2>Welcome to Nonprofit Tools Hub</h2>
-            <h3>All the best nonprofit technology tools and resources.</h3>
+            <div class="try-tools-prompt">
+                <div class="curved-arrow"></div>
+                <span>Try our tools!</span>
+            </div>
+            <div class="welcome-header">
+                <h3>All the best nonprofit tech tools and resources.</h3>
+            </div>
+            
             <div class="about-row">
                 <a href="https://goodhearttech.org/donate/" target="_blank" class="welcome-donate-button">
                     <i class="fas fa-heart"></i>

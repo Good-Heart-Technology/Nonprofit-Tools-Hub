@@ -6,6 +6,12 @@ const homeLink = document.querySelector('.home-link');
 const sidebar = document.querySelector('.sidebar');
 const toggleButton = document.querySelector('.toggle-sidebar');
 
+// Check if sidebar has scrollable content
+const updateScrollIndicator = () => {
+    const hasScroll = sidebar.scrollHeight > sidebar.clientHeight;
+    sidebar.classList.toggle('has-scroll', hasScroll && sidebar.scrollTop < sidebar.scrollHeight - sidebar.clientHeight);
+};
+
 // Update tooltip position based on sidebar state
 const updateTooltipPosition = () => {
     const isCollapsed = sidebar.classList.contains('collapsed');
@@ -16,12 +22,6 @@ const updateTooltipPosition = () => {
 const handleNavItemHover = (e) => {
     const item = e.target.closest('.nav-item');
     if (!item) return;
-    
-    const rect = item.getBoundingClientRect();
-    const span = item.querySelector('span');
-    if (span) {
-        span.style.setProperty('--tooltip-top', `${rect.top}px`);
-    }
 };
 
 const handleNavItemClick = (e) => {
@@ -72,6 +72,7 @@ const initializeApp = () => {
         sidebar.classList.add('collapsed');
     }
     updateTooltipPosition();
+    updateScrollIndicator();
 
     // Event Listeners
     navItems.forEach(item => {
@@ -81,6 +82,8 @@ const initializeApp = () => {
 
     homeLink.addEventListener('click', handleHomeClick);
     toggleButton.addEventListener('click', handleSidebarToggle);
+    sidebar.addEventListener('scroll', updateScrollIndicator);
+    window.addEventListener('resize', updateScrollIndicator);
 };
 
 // Run initialization when DOM is loaded
