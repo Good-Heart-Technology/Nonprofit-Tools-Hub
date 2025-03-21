@@ -67,6 +67,14 @@
             letter-spacing: -0.02em;
         }
 
+        .welcome-screen h4 {
+            color: var(--text-color);
+            margin: 0;
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
         .nav-item span::after,
         .sidebar.collapsed .nav-item::after {
             font-weight: 400;
@@ -379,8 +387,8 @@
             position: relative;
         }
 
-        .hamburger-menu {
-            display: none;
+        .mobile-menu-button {
+            display: none;  /* Hide by default on desktop */
         }
 
         #content-frame {
@@ -414,7 +422,15 @@
         .welcome-screen h3 {
             color: var(--accent-blue);
             margin: 0.5rem 0 0 0;
-            font-size: 2rem;
+            font-size: 2.2rem;
+        }
+
+        .welcome-screen h4 {
+            color: var(--text-color);
+            margin: 0;
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
         }
 
         .welcome-header {
@@ -424,20 +440,22 @@
         .about-row {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             gap: 1.5rem;
             max-width: 800px;
             padding: 0.5rem 0;
+            flex-direction: row-reverse;
         }
         
         .opensource-commitment {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             gap: 1.5rem;
             max-width: 800px;
             padding: 0.5rem 0;
             text-align: center;
+            flex-direction: column;
         }
 
         .opensource-commitment p {
@@ -446,6 +464,7 @@
             max-width: 700px;
             line-height: 1.6;
             margin: 0;
+            text-align: center;
         }
 
         .disclaimer {
@@ -497,6 +516,13 @@
             color: var(--text-color);
             max-width: 600px;
             line-height: 1.6;
+        }
+
+        .about-row p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin: 0;
+            color: var(--text-color);
         }
 
         .welcome-screen a {
@@ -597,92 +623,79 @@
             }
         }
 
-        /* Responsive Design */
+        /* Mobile Styles */
         @media (max-width: 768px) {
-            body {
-                flex-direction: column;
-            }
-
             .toggle-sidebar {
-                display: none;
-            }
-            
-            .hamburger-menu {
-                display: flex;
+                display: none !important;
             }
 
-            .main-content {
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
                 height: 100vh;
-                padding-top: 0;
-                margin-top: 0;
-                z-index: 1;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 99998;
+                background: var(--card-background);
+                padding-top: 4rem;
+            }
+
+            .sidebar.mobile-sidebar-visible {
+                transform: translateX(0);
+            }
+
+            /* Mobile menu button */
+            .mobile-menu-button {
+                display: flex;  /* Show only on mobile */
+                position: fixed;
+                top: 1rem;
+                right: 1rem;
+                width: 44px;
+                height: 44px;
+                background: var(--card-background);
+                border: 1px solid var(--primary-color);
+                border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                z-index: 99999;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            /* Mobile menu icon */
+            .mobile-menu-button i {
+                position: relative;
+                color: var(--text-color);
+                font-size: 1.5rem;
+                transition: all 0.3s ease;
+                z-index: 100000;
+            }
+
+            .mobile-menu-button i.fa-xmark {
+                color: var(--accent-blue);
+            }
+
+            .mobile-menu-button.active {
+                border-color: var(--accent-blue);
+                background: var(--card-hover);
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            }
+
+            .mobile-menu-button.active i {
+                color: var(--accent-blue);
+            }
+
+            /* Ensure content stays below the mobile menu */
+            .main-content {
+                z-index: 99997;
             }
             
             .welcome-screen {
                 padding: 4rem 1rem 1.5rem;
                 height: 100%;
                 overflow-y: auto;
-            }
-
-            .sidebar {
-                width: 100%;
-                height: auto;
-                max-height: 60vh;
-                padding: 0.75rem;
-                position: fixed;
-                top: 0;
-                left: 0;
-                z-index: 1000;
-                transform: translateY(-100%);
-                transition: transform 0.3s ease;
-                overflow-y: auto;
-                -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-            }
-
-            .sidebar.mobile-visible {
-                transform: translateY(0);
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-                padding-top: 3.5rem; /* Add padding at the top to avoid covering the hamburger menu */
-            }
-
-            .hamburger-menu {
-                display: flex;
-                position: fixed;
-                top: 1rem;
-                right: 1rem;
-                z-index: 9999; /* Extremely high z-index to ensure it's on top */
-                width: 44px;
-                height: 44px;
-                border-radius: 50%;
-                background: var(--card-background);
-                border: 1px solid var(--primary-color);
-                color: var(--text-color);
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-                -webkit-tap-highlight-color: transparent; /* No highlight on tap */
-            }
-
-            /* Add a highlight effect around the hamburger when menu is open */
-            .sidebar.mobile-visible + .main-content .hamburger-menu {
-                border-color: var(--accent-blue);
-                box-shadow: 0 0 0 4px rgba(160, 221, 255, 0.3);
-            }
-
-            .hamburger-menu i {
-                font-size: 1.5rem;
-                z-index: 10000; /* Even higher z-index */
-            }
-            
-            .hamburger-menu:hover {
-                background: var(--card-hover);
-            }
-
-            /* Styles for the X icon (close button) */
-            .hamburger-menu .fa-times {
-                color: var(--accent-blue);
             }
 
             .sidebar-header {
@@ -734,7 +747,12 @@
             }
 
             .welcome-screen h3 {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
+                line-height: 1.3;
+            }
+
+            .welcome-screen h4 {
+                font-size: 1.2rem;
                 line-height: 1.3;
             }
 
@@ -782,6 +800,10 @@
             .sidebar.collapsed .nav-item::after {
                 display: none;
             }
+
+            .about-row p {
+                font-size: 1rem;
+            }
         }
 
         /* Additional mobile optimizations for very small screens */
@@ -795,7 +817,11 @@
             }
 
             .welcome-screen h3 {
-                font-size: 1.25rem;
+                font-size: 1.3rem;
+            }
+
+            .welcome-screen h4 {
+                font-size: 1.1rem;
             }
 
             .welcome-screen p {
@@ -816,7 +842,7 @@
                 <img src="https://graphics.goodhearttech.org/GHT-AllWhiteLogo-phishsite.png" alt="Good Heart Tech">
             </a>
             <h1><a href="#" class="home-link">Nonprofit Tools Hub</a></h1>
-        </div>
+            </div>
         <nav>
             <div class="nav-category">Security & Privacy</div>
             <a href="https://push.goodheart.tech/" class="nav-item" target="_blank" data-label="Password Pusher">
@@ -891,7 +917,7 @@
         <div class="toggle-sidebar">
             <i class="fas fa-chevron-left"></i>
         </div>
-        <div class="hamburger-menu">
+        <div class="mobile-menu-button">
             <i class="fas fa-bars"></i>
         </div>
         <div class="welcome-screen" id="welcome-screen">
@@ -901,6 +927,10 @@
             </div>
             <div class="welcome-header">
                 <h3>All the best nonprofit tech tools and resources.</h3>
+            </div>
+
+            <div class="welcome-subheader">
+                <h4>Check out the menu for useful tools!</h4>
             </div>
             
             <div class="about-row">

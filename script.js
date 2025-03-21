@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const homeLink = document.querySelector('.home-link');
     const sidebar = document.querySelector('.sidebar');
     const toggleButton = document.querySelector('.toggle-sidebar');
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
 
     // ==============================
     // DESKTOP FUNCTIONALITY
@@ -75,27 +75,26 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Toggle mobile menu
     const toggleMobileMenu = () => {
-        sidebar.classList.toggle('mobile-visible');
+        sidebar.classList.toggle('mobile-sidebar-visible');
+        mobileMenuButton.classList.toggle('active');
         
-        // Toggle icon between hamburger and X
-        const icon = hamburgerMenu.querySelector('i');
-        
-        // Always remove both classes first, then add the correct one
-        icon.classList.remove('fa-bars');
-        icon.classList.remove('fa-times');
-        
-        if (sidebar.classList.contains('mobile-visible')) {
-            icon.classList.add('fa-times');
+        // Toggle between hamburger and close icons
+        const icon = mobileMenuButton.querySelector('i');
+        if (sidebar.classList.contains('mobile-sidebar-visible')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-xmark');
         } else {
+            icon.classList.remove('fa-xmark');
             icon.classList.add('fa-bars');
         }
     };
     
     // Close the mobile menu
     const closeMobileMenu = () => {
-        sidebar.classList.remove('mobile-visible');
-        const icon = hamburgerMenu.querySelector('i');
-        icon.classList.remove('fa-times');
+        sidebar.classList.remove('mobile-sidebar-visible');
+        mobileMenuButton.classList.remove('active');
+        const icon = mobileMenuButton.querySelector('i');
+        icon.classList.remove('fa-xmark');
         icon.classList.add('fa-bars');
     };
 
@@ -140,14 +139,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Mobile menu button handling
-    hamburgerMenu.addEventListener('click', toggleMobileMenu);
+    mobileMenuButton.addEventListener('click', toggleMobileMenu);
     
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
         if (window.innerWidth <= 768 && 
-            sidebar.classList.contains('mobile-visible') &&
+            sidebar.classList.contains('mobile-sidebar-visible') &&
             !sidebar.contains(e.target) && 
-            !hamburgerMenu.contains(e.target)) {
+            !mobileMenuButton.contains(e.target)) {
             closeMobileMenu();
         }
     });
