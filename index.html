@@ -804,6 +804,13 @@
             .about-row p {
                 font-size: 1rem;
             }
+
+            .info-box {
+                font-size: 0.9rem;
+                padding: 0.75rem;
+                text-align: left;
+                gap: 0.5rem;
+            }
         }
 
         /* Additional mobile optimizations for very small screens */
@@ -831,6 +838,69 @@
             .footer-button {
                 padding: 0.5rem 0.75rem;
                 font-size: 0.85rem;
+            }
+        }
+
+        /* Add styles for the info box */
+        .info-box {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            border: 1px solid var(--accent-blue);
+            border-radius: 8px;
+            background: rgba(160, 221, 255, 0.1);
+            max-width: 600px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 0.95rem;
+            color: var(--text-color);
+            margin: 0 auto;
+        }
+
+        .info-box i.fa-info-circle {
+            color: var(--accent-blue);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .info-box .content {
+            display: inline;
+            white-space: normal;
+        }
+
+        .info-box a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            margin-left: 0.5rem;
+        }
+
+        .info-box a i {
+            font-size: 0.8em;
+        }
+
+        .info-box a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .info-box {
+                font-size: 0.9rem;
+                padding: 0.75rem;
+                text-align: left;
+                gap: 0.5rem;
+            }
+
+            .info-box .content {
+                display: inline;
+            }
+
+            .info-box a {
+                margin-left: 0.25rem;
             }
         }
     </style>
@@ -931,6 +1001,17 @@
 
             <div class="welcome-subheader">
                 <h4>Check out the menu for useful tools!</h4>
+            </div>
+            
+            <div class="info-box">
+                <i class="fas fa-info-circle"></i>
+                <div class="content">
+                    Looking for recommendations, guides, and other info about nonprofit tech?
+                    <a href="https://learn.goodhearttech.org/" target="_blank">
+                        Launch Nonprofit Tech Toolkit
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
             </div>
             
             <div class="about-row">
