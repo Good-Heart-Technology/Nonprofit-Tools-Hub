@@ -6,6 +6,30 @@ This app was created and hosted by **Good Heart Tech**, a nonprofit dedicated to
 
 For more information about our mission and services, please visit our website: [Good Heart Tech](https://goodhearttech.org/).
 
+## Available Tools
+
+### Security
+- **Password Pusher**: Securely share passwords with automatic expiration
+- **Password Generator**: Create strong, secure passwords
+
+### Document & Media Tools
+- **Media Converter**: Convert images, audio, and archive files between different formats
+- **PDF Editor**: Comprehensive PDF editing and manipulation tools
+- **Draw.io**: Create professional diagrams, flowcharts, and visual content
+- **QR Code Generator**: Generate QR codes for URLs and WiFi networks
+- **Wallpaper Generator**: Create custom wallpapers with your organization's logo
+
+### Policy & Compliance
+- **Policy Generator**: Generate privacy policies, acceptable use policies, and other essential documents
+
+### Performance & Analysis
+- **Speed Test**: Check your internet connection speed and performance
+- **Web Check**: Analyze website security, performance, and technical metrics
+- **Domain Analyzer**: Analyze domain security, deliverability, and DNS health
+
+### Resources
+- **Nonprofit Tech Toolkit**: Access our comprehensive collection of nonprofit technology resources and guides
+
 ## Donate
 
 Support our mission and help us provide free IT services to nonprofits. Your contributions make a difference! Donate here: [Donate to Good Heart Tech](https://goodhearttech.org/donate/).
