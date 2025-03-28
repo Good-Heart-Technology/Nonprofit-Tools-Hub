@@ -1,53 +1,64 @@
-# Nonprofit Tools Hub - Good Heart Tech
+# Nonprofit Tools Hub
 
-## Overview
+Welcome to the Nonprofit Tools Hub, a comprehensive suite of free tools designed specifically for nonprofit organizations. Visit [https://nonprofit-tools-hub.pages.dev](https://nonprofit-tools-hub.pages.dev) to try out our tools and streamline your nonprofit's operations.
 
-This app was created and hosted by **Good Heart Tech**, a nonprofit dedicated to supporting other nonprofit organizations by providing accessible, technology-driven solutions. We believe in empowering nonprofits with the tools they need to operate effectively and securely in the digital age. 
+## 🏢 About Good Heart Tech
 
-For more information about our mission and services, please visit our website: [Good Heart Tech](https://goodhearttech.org/).
+This app was created and hosted by [Good Heart Tech](https://goodhearttech.org/). Good Heart Tech is a nonprofit dedicated to supporting other nonprofit organizations by providing accessible, technology-driven solutions. We believe in empowering nonprofits with the tools they need to operate effectively and securely in the digital age.
 
-## Available Tools
+[![Good Heart Tech Logo](https://graphics.goodhearttech.org/GHT-AllWhiteLogo-phishsite.png)](https://goodhearttech.org/) [![Donate](https://img.shields.io/badge/Donate-❤️-red?style=for-the-badge&color=%237189ff)](https://goodhearttech.org/donate/)
 
-### Document & Media Tools
-- **Media Converter**: Convert images, audio, and archive files between different formats
-- **Convert Image to Text (OCR)**: Convert your images to editable text using OCR technology
-- **PDF Editor**: Comprehensive PDF editing and manipulation tools
-- **Draw.io**: Create professional diagrams, flowcharts, and visual content
-- **QR Code Generator**: Generate QR codes for URLs and WiFi networks
-- **Wallpaper Generator**: Create custom wallpapers with your organization's logo
+## ✨ Features
 
-### Performance & Analysis
-- **Internet Speed Test**: Check your internet connection speed and performance
-- **Web Check**: Analyze website security, performance, and technical metrics
-- **Domain Analyzer**: Analyze domain security, deliverability, and DNS health
+- **Document & Media Tools**
+  - Media Converter for images, audio, and archives
+  - OCR Image to Text conversion
+  - PDF Editor with comprehensive tools
+  - Draw.io for professional diagrams
+  - QR Code Generator
+  - Wallpaper Generator
 
-### Security & Compliance
-- **Password Pusher**: Securely share passwords with automatic expiration
-- **Password Generator**: Create strong, secure passwords
-- **Policy Generator**: Generate privacy policies, acceptable use policies, and other essential documents
+- **Performance & Analysis**
+  - Internet Speed Test
+  - Web Check for security and performance
+  - Domain Analyzer for security and DNS health
 
-### Resources
-- **Nonprofit Tech Toolkit**: Access our comprehensive collection of nonprofit technology resources and guides
+- **Security & Compliance**
+  - Password Pusher with automatic expiration
+  - Secure Password Generator
+  - Policy Generator for essential documents
 
-## Donate
+- **Resources**
+  - Nonprofit Tech Toolkit with guides and resources
 
-Support our mission and help us provide free IT services to nonprofits. Your contributions make a difference! Donate here: [Donate to Good Heart Tech](https://goodhearttech.org/donate/).
+## 🛠️ Tech Stack
 
-## Tech Stack
-
-This application is built using the following technologies:
-- HTML
-- CSS
+- HTML5
+- CSS3
 - JavaScript
-- Cloudflare Pages (for hosting)
+- Cloudflare Pages (Hosting)
 
-## Open Source Commitment
+## 🚀 Deployment
 
-Good Heart Tech is committed to open-source software and the principles of transparency, collaboration, and accessibility. Our projects are released under the **GNU General Public License v3.0 (GPLv3)**, ensuring that anyone can use, modify, and distribute our code while upholding the same freedoms for others.
+1. Fork this repository to your GitHub account
+2. Log in to your Cloudflare account and navigate to Workers & Pages > Create
+3. Select Pages
+4. Choose "Connect to Git"
+5. Select your forked repository
+6. Configure your build settings:
+   - Build command: (leave empty)
+   - Build output directory: /
+7. Click "Save and Deploy"
 
-We believe in empowering nonprofits and the broader community with open, secure, and reliable technology solutions. Contributions and feedback are always welcome! For details, see our LICENSE file.
+## 📄 License
 
-## License
+This project is licensed under the [GNU General Public License v3.0](LICENSE).
 
-This project is licensed under the **GNU General Public License v3.0**. You can view the full license text in the `LICENSE` file included in this repository.
+## ⚠️ Disclaimer
+
+The tools provided are intended for informational purposes only and do not constitute professional advice. They may experience interruptions or stop functioning at any time and are provided without any guarantees or warranties. Use them at your own discretion and risk.
+
+---
+
+[![Good Heart Tech Logo](https://graphics.goodhearttech.org/GHT-AllWhiteLogo-phishsite.png)](https://goodhearttech.org/) [![Donate](https://img.shields.io/badge/Donate-❤️-red?style=for-the-badge&color=%237189ff)](https://goodhearttech.org/donate/)
 
