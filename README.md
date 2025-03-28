@@ -1,12 +1,12 @@
 # Nonprofit Tools Hub
 
-Welcome to the Nonprofit Tools Hub, a comprehensive suite of free tools designed specifically for nonprofit organizations. Visit [https://nonprofit-tools-hub.pages.dev](https://nonprofit-tools-hub.pages.dev) to try out our tools and streamline your nonprofit's operations.
+Welcome to the Nonprofit Tools Hub, a comprehensive suite of free tools designed specifically for nonprofit organizations. This collection of utilities helps nonprofits streamline their operations, enhance security, and improve efficiency. Try it out at [tools.goodhearttech.org](https://tools.goodhearttech.org)!
 
-## 🏢 About Good Heart Tech
+## 🏢 About [Good Heart Tech](https://goodhearttech.org/)
 
-This app was created and hosted by [Good Heart Tech](https://goodhearttech.org/). Good Heart Tech is a nonprofit dedicated to supporting other nonprofit organizations by providing accessible, technology-driven solutions. We believe in empowering nonprofits with the tools they need to operate effectively and securely in the digital age.
+This app was developed and hosted by [Good Heart Tech](https://goodhearttech.org/), a nonprofit committed to empowering other nonprofits through accessible, technology-driven solutions. Our mission is to equip nonprofits with the tools and support they need to thrive and operate securely in today's digital landscape.
 
-[![Good Heart Tech Logo](https://graphics.goodhearttech.org/GHT-AllWhiteLogo-phishsite.png)](https://goodhearttech.org/) [![Donate](https://img.shields.io/badge/Donate-❤️-red?style=for-the-badge&color=%237189ff)](https://goodhearttech.org/donate/)
+[![Donate to Good Heart Tech](https://img.shields.io/badge/Donate_to_Good_Heart_Tech-💙-white)](https://goodhearttech.org/donate/)
 
 ## ✨ Features
 
@@ -20,16 +20,16 @@ This app was created and hosted by [Good Heart Tech](https://goodhearttech.org/)
 
 - **Performance & Analysis**
   - Internet Speed Test
-  - Web Check for security and performance
-  - Domain Analyzer for security and DNS health
+  - Website Security & Performance Check
+  - Domain Health Analyzer
 
 - **Security & Compliance**
-  - Password Pusher with automatic expiration
-  - Secure Password Generator
-  - Policy Generator for essential documents
+  - Secure Password Pusher
+  - Strong Password Generator
+  - Policy Document Generator
 
 - **Resources**
-  - Nonprofit Tech Toolkit with guides and resources
+  - Nonprofit Tech Toolkit
 
 ## 🛠️ Tech Stack
 
@@ -60,5 +60,10 @@ The tools provided are intended for informational purposes only and do not const
 
 ---
 
-[![Good Heart Tech Logo](https://graphics.goodhearttech.org/GHT-AllWhiteLogo-phishsite.png)](https://goodhearttech.org/) [![Donate](https://img.shields.io/badge/Donate-❤️-red?style=for-the-badge&color=%237189ff)](https://goodhearttech.org/donate/)
+<a href="https://goodhearttech.org/">
+  <img src="https://graphics.goodhearttech.org/GHT-AllWhiteLogo-phishsite.png" alt="Good Heart Tech" width="360">
+</a>
+<br><br>
+
+[![Donate to Good Heart Tech](https://img.shields.io/badge/Donate_to_Good_Heart_Tech-💙-white)](https://goodhearttech.org/donate/)
 
