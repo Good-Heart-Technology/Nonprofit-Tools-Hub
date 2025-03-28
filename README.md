@@ -8,24 +8,23 @@ For more information about our mission and services, please visit our website: [
 
 ## Available Tools
 
-### Security
-- **Password Pusher**: Securely share passwords with automatic expiration
-- **Password Generator**: Create strong, secure passwords
-
 ### Document & Media Tools
 - **Media Converter**: Convert images, audio, and archive files between different formats
+- **Convert Image to Text (OCR)**: Convert your images to editable text using OCR technology
 - **PDF Editor**: Comprehensive PDF editing and manipulation tools
 - **Draw.io**: Create professional diagrams, flowcharts, and visual content
 - **QR Code Generator**: Generate QR codes for URLs and WiFi networks
 - **Wallpaper Generator**: Create custom wallpapers with your organization's logo
 
-### Policy & Compliance
-- **Policy Generator**: Generate privacy policies, acceptable use policies, and other essential documents
-
 ### Performance & Analysis
-- **Speed Test**: Check your internet connection speed and performance
+- **Internet Speed Test**: Check your internet connection speed and performance
 - **Web Check**: Analyze website security, performance, and technical metrics
 - **Domain Analyzer**: Analyze domain security, deliverability, and DNS health
+
+### Security & Compliance
+- **Password Pusher**: Securely share passwords with automatic expiration
+- **Password Generator**: Create strong, secure passwords
+- **Policy Generator**: Generate privacy policies, acceptable use policies, and other essential documents
 
 ### Resources
 - **Nonprofit Tech Toolkit**: Access our comprehensive collection of nonprofit technology resources and guides
