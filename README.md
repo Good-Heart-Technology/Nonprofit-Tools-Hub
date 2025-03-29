@@ -11,7 +11,6 @@ This app was developed and hosted by [Good Heart Tech](https://goodhearttech.org
 ## ✨ Features
 
 - **Document & Media Tools**
-  - Draw.io for professional diagrams
   - Media Converter for images, audio, and archives
   - OCR Image to Text conversion
   - PDF Editor with comprehensive tools
