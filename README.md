@@ -11,25 +11,26 @@ This app was developed and hosted by [Good Heart Tech](https://goodhearttech.org
 ## ✨ Features
 
 - **Document & Media Tools**
+  - Draw.io for professional diagrams
   - Media Converter for images, audio, and archives
   - OCR Image to Text conversion
   - PDF Editor with comprehensive tools
-  - Draw.io for professional diagrams
   - QR Code Generator
+  - Text Manipulator for text editing and manipulation
   - Wallpaper Generator
 
 - **Performance & Analysis**
+  - Domain Health Analyzer
   - Internet Speed Test
   - Website Security & Performance Check
-  - Domain Health Analyzer
 
 - **Security & Compliance**
-  - Secure Password Pusher
-  - Strong Password Generator
+  - Password Generator
+  - Password Pusher
   - Policy Document Generator
 
 - **Resources**
-  - Nonprofit Tech Toolkit
+  - Nonprofit Tech Navigator
 
 ## 🛠️ Tech Stack
 
