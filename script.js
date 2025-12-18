@@ -32,7 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Check if this is an external link (has target="_blank")
         if (navItem.getAttribute('target') === '_blank') {
-            // Let the default link behavior handle it
+            // Let the default link behavior handle it - don't prevent default or stop propagation
+            // The browser will open it in a new tab
             return;
         }
 
