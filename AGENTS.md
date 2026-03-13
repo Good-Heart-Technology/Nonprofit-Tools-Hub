@@ -20,22 +20,24 @@ Nonprofit Tools Hub is a **static site** hosted on **Cloudflare Pages**. It serv
 ```
 /
 ├── index.html      # Main page: layout, styles, sidebar nav, welcome screen, iframe
-├── script.js       # Navigation, sidebar toggle, mobile menu, iframe loading
+├── script.js       # Navigation, sidebar toggle, mobile menu, iframe loading, deep linking
 ├── sitemap.xml     # Sitemap for SEO
+├── robots.txt      # Points crawlers to sitemap
 ├── LICENSE
 └── AGENTS.md
 ```
 
-- **Navigation**: Sidebar nav in `index.html`; each `.nav-item` has `data-url` and `data-label`
+- **Navigation**: Sidebar nav in `index.html`; each `.nav-item` has `data-url`, `data-label`, and `data-slug` (for embedded tools)
 - **Embedded tools**: Loaded in `#content-frame` iframe when `data-url` is present and no `target="_blank"`
 - **External links**: Items with `target="_blank"` open in new tab (e.g., PDF Editor, Password Pusher, Nonprofit Tech Navigator)
+- **Deep linking**: `?tool=<slug>` in the URL loads that tool; back/forward and bookmarking work (e.g., `?tool=ocr`)
 
 ## Do
 
 - Use vanilla HTML, CSS, and JavaScript only
 - Keep styles in `index.html`; use CSS variables in `:root` for theming
 - Preserve existing structure: sidebar, welcome screen, iframe, mobile menu
-- Add new tools by adding `.nav-item` links with `data-url` and `data-label`
+- Add new tools by adding `.nav-item` links with `data-url`, `data-label`, and `data-slug` (for embedded tools)
 - Use Font Awesome icons (`fas fa-*`) and Noto Sans font as in the current design
 - Keep the site static and deployable to Cloudflare Pages with no build step
 
@@ -56,7 +58,7 @@ Nonprofit Tools Hub is a **static site** hosted on **Cloudflare Pages**. It serv
 ## Safety and Permissions
 
 **Allowed without explicit approval:**
-- Read and edit `index.html`, `script.js`, `sitemap.xml`
+- Read and edit `index.html`, `script.js`, `sitemap.xml`, `robots.txt`
 - Add or update nav items, styles, and minor UI changes
 
 **Ask first:**

@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nonprofit Web Tools</title>
+    <meta name="description" content="Free nonprofit tech tools: media converter, OCR, PDF editor, QR codes, password generator, policy generator, and more. Built by Good Heart Tech for nonprofits.">
+    <link rel="canonical" href="https://nonprofittools.org/">
+    <meta property="og:title" content="Nonprofit Web Tools">
+    <meta property="og:description" content="Free nonprofit tech tools: media converter, OCR, PDF editor, QR codes, password generator, policy generator, and more. Built by Good Heart Tech for nonprofits.">
+    <meta property="og:url" content="https://nonprofittools.org/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Nonprofit Web Tools">
+    <meta name="twitter:description" content="Free nonprofit tech tools: media converter, OCR, PDF editor, QR codes, password generator, policy generator, and more. Built by Good Heart Tech for nonprofits.">
     <link rel="icon" type="image/svg+xml" href="https://graphics.goodhearttech.org/GHT/favicons/favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -553,7 +562,7 @@
             font-size: 1rem;
             font-weight: 600;
             background: var(--primary-color);
-            color: #FFFFFF;
+            color: #FFFFFF !important;
             text-decoration: none !important;
             border-radius: 8px;
             transition: all 0.3s ease;
@@ -919,11 +928,11 @@
             </div>
         <nav>
             <div class="nav-category">Document & Media Tools</div>
-            <a href="https://convert.nonprofittools.org/" class="nav-item" data-url="https://convert.nonprofittools.org/" data-label="Media Converter">
+            <a href="https://convert.nonprofittools.org/" class="nav-item" data-url="https://convert.nonprofittools.org/" data-label="Media Converter" data-slug="convert">
                 <i class="fas fa-file-import"></i>
                 <span data-tooltip="Convert images, audio, and archive files between different formats">Media Converter</span>
             </a>
-            <a href="https://ocr.nonprofittools.org/" class="nav-item" data-url="https://ocr.nonprofittools.org/" data-label="Image to Text (OCR)">
+            <a href="https://ocr.nonprofittools.org/" class="nav-item" data-url="https://ocr.nonprofittools.org/" data-label="Image to Text (OCR)" data-slug="ocr">
                 <i class="fas fa-image"></i>
                 <span data-tooltip="Convert your images to editable text using OCR technology">Image to Text (OCR)</span>
             </a>
@@ -934,33 +943,33 @@
                     <i class="fa-solid fa-up-right-from-square" style="margin-left: 4px; font-size: 0.8em;"></i>
                 </span>
             </a>
-            <a href="https://qr.nonprofittools.org/" class="nav-item" data-url="https://qr.nonprofittools.org/" data-label="QR Code Generator">
+            <a href="https://qr.nonprofittools.org/" class="nav-item" data-url="https://qr.nonprofittools.org/" data-label="QR Code Generator" data-slug="qr">
                 <i class="fas fa-qrcode"></i>
                 <span data-tooltip="Generate QR codes for URLs and WiFi networks">QR Code Generator</span>
             </a>
-            <a href="https://text.nonprofittools.org/" class="nav-item" data-url="https://text.nonprofittools.org/" data-label="Text Manipulator">
+            <a href="https://text.nonprofittools.org/" class="nav-item" data-url="https://text.nonprofittools.org/" data-label="Text Manipulator" data-slug="text">
                 <i class="fas fa-text-width"></i>
                 <span data-tooltip="A powerful, web-based tool for text manipulation and editing">Text Manipulator</span>
             </a>
-            <a href="https://wallpaper.nonprofittools.org/" class="nav-item" data-url="https://wallpaper.nonprofittools.org/" data-label="Wallpaper Generator">
+            <a href="https://wallpaper.nonprofittools.org/" class="nav-item" data-url="https://wallpaper.nonprofittools.org/" data-label="Wallpaper Generator" data-slug="wallpaper">
                 <i class="fas fa-image"></i>
                 <span data-tooltip="Create custom wallpapers with your organization's logo">Wallpaper Generator</span>
             </a>
-            <a href="https://snip.nonprofittools.org/" class="nav-item" data-url="https://snip.nonprofittools.org/" data-label="Snippet Sharing">
+            <a href="https://snip.nonprofittools.org/" class="nav-item" data-url="https://snip.nonprofittools.org/" data-label="Snippet Sharing" data-slug="snip">
                 <i class="fa-solid fa-share"></i>
-                <span data-tooltip="Quickly share text with others.">Text Sharing Tool</span>
+                <span data-tooltip="Quickly share text with others.">Snippet Sharing</span>
             </a>
 
             <div class="nav-category">Performance & Analysis</div>
-            <a href="https://speed.goodheart.tech/" class="nav-item" data-url="https://speed.goodheart.tech/" data-label="Internet Speed Test">
+            <a href="https://speed.goodheart.tech/" class="nav-item" data-url="https://speed.goodheart.tech/" data-label="Internet Speed Test" data-slug="speed">
                 <i class="fas fa-tachometer-alt"></i>
                 <span data-tooltip="Check your internet connection speed and performance">Internet Speed Test</span>
             </a>
-            <a href="https://webcheck.goodheart.tech/" class="nav-item" data-url="https://webcheck.goodheart.tech/" data-label="Website Check">
+            <a href="https://webcheck.goodheart.tech/" class="nav-item" data-url="https://webcheck.goodheart.tech/" data-label="Website Check" data-slug="webcheck">
                 <i class="fas fa-check-circle"></i>
                 <span data-tooltip="Analyze website security, performance, and technical metrics">Website Check</span>
             </a>
-            <a href="https://dnschecking.org/" class="nav-item" data-url="https://dnschecking.org" data-label="Domain Analyzer">
+            <a href="https://dnschecking.org/" class="nav-item" data-url="https://dnschecking.org" data-label="Domain Analyzer" data-slug="dns">
                 <i class="fas fa-heart-circle-check"></i>
                 <span data-tooltip="Analyze domain security, deliverability, and DNS health">Domain Analyzer</span>
             </a>
@@ -973,11 +982,11 @@
                     <i class="fa-solid fa-up-right-from-square" style="margin-left: 4px; font-size: 0.8em;"></i>
                 </span>
             </a>
-            <a href="https://password.nonprofittools.org/" class="nav-item" data-url="https://password.nonprofittools.org/" data-label="Password Generator">
+            <a href="https://password.nonprofittools.org/" class="nav-item" data-url="https://password.nonprofittools.org/" data-label="Password Generator" data-slug="password">
                 <i class="fas fa-asterisk"></i>
                 <span data-tooltip="Create strong, secure passwords with our password generator">Password Generator</span>
             </a>
-            <a href="https://policy.nonprofittools.org/" class="nav-item" data-url="https://policy.nonprofittools.org/" data-label="Policy Generator">
+            <a href="https://policy.nonprofittools.org/" class="nav-item" data-url="https://policy.nonprofittools.org/" data-label="Policy Generator" data-slug="policy">
                 <i class="fas fa-file-contract"></i>
                 <span data-tooltip="Generate privacy policies, acceptable use policies, and other essential documents">Policy Generator</span>
             </a>
@@ -1003,10 +1012,10 @@
         </div>
     </div>
     <main class="main-content">
-        <div class="toggle-sidebar">
+        <div class="toggle-sidebar" role="button" tabindex="0" aria-label="Toggle sidebar">
             <i class="fas fa-chevron-left"></i>
         </div>
-        <div class="mobile-menu-button">
+        <div class="mobile-menu-button" role="button" tabindex="0" aria-label="Open navigation menu" aria-expanded="false">
             <i class="fas fa-bars"></i>
         </div>
         <div class="welcome-screen" id="welcome-screen">
@@ -1044,7 +1053,7 @@
             </div>
 
             <div class="disclaimer">
-                The tools provided in the Nonprofit Web Tools are offered 'as is' without any guarantees or warranties, express or implied, and may be modified, discontinued, or become nonfunctional at any time without notice. View our <a href="https://goodhearttech.org/privacypolicy/" target="_blank">Privacy Policy</a>.
+                The tools provided in the Nonprofit Web Tools are offered 'as is' without any guarantees or warranties, express or implied, and may be modified, discontinued, or become nonfunctional at any time without notice. View our <a href="https://goodhearttech.org/privacy-policy" target="_blank">Privacy Policy</a>.
             </div>
         </div>
         <iframe 

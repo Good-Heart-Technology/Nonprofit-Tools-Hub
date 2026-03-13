@@ -9,12 +9,7 @@
 
     <!-- Document & Media Tools -->
     <url>
-        <loc>https://draw.nonprofittools.org/</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://media.nonprofittools.org/</loc>
+        <loc>https://convert.nonprofittools.org/</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -43,32 +38,37 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://snip.nonprofittools.org/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
 
     <!-- Performance & Analysis Tools -->
     <url>
+        <loc>https://speed.goodheart.tech/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://webcheck.goodheart.tech/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://dnschecking.org/</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://speed.nonprofittools.org/</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://security.nonprofittools.org/</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <!-- Security & Compliance Tools -->
     <url>
-        <loc>https://password.nonprofittools.org/</loc>
+        <loc>https://push.goodheart.tech/</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://pusher.nonprofittools.org/</loc>
+        <loc>https://password.nonprofittools.org/</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -80,7 +80,7 @@
 
     <!-- Resources -->
     <url>
-        <loc>https://navigator.nonprofittools.org/</loc>
+        <loc>https://learn.goodhearttech.org/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -96,4 +96,4 @@
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
-</urlset> 
+</urlset>
