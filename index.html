@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nonprofit Hub - Good Heart Tech</title>
+    <title>Nonprofit Web Tools</title>
     <link rel="icon" type="image/svg+xml" href="https://graphics.goodhearttech.org/GHT/favicons/favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -14,13 +14,14 @@
     <style>
         :root {
             --primary-color: #7189ff;
-            --primary-light: #7189ff;
-            --background-color: #394053;
-            --text-color: #FFFFFF;
-            --card-background: #091D20;
-            --card-hover: #394053;
+            --primary-light: #7189FE;
+            --background-color: #FFFFFF;
+            --text-color: #091D20;
+            --card-background: #FFFFFF;
+            --card-hover: #d6ddff;
             --accent-blue: #a0ddff;
             --gray: #808080;
+            --charcoal: #394053;
             --sidebar-width: 320px;
         }
         
@@ -107,13 +108,13 @@
             height: 100vh;
             padding: 1rem;
             box-sizing: border-box;
-            border-right: 1px solid var(--primary-color);
+            border-right: 1px solid rgba(57, 64, 83, 0.2);
             overflow-y: auto;
             overflow-x: hidden;
             transition: width 0.3s ease;
             position: relative;
             scrollbar-width: thin;
-            scrollbar-color: var(--primary-color) var(--card-background);
+            scrollbar-color: var(--primary-color) #f0f4ff;
             scroll-behavior: smooth;
         }
 
@@ -123,7 +124,7 @@
         }
 
         .sidebar::-webkit-scrollbar-track {
-            background: var(--card-background);
+            background: #f0f4ff;
             border-radius: 4px;
         }
 
@@ -145,7 +146,7 @@
             left: 0;
             width: var(--sidebar-width);
             height: 40px;
-            background: linear-gradient(transparent, var(--card-background));
+            background: linear-gradient(transparent, #FFFFFF);
             pointer-events: none;
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -178,7 +179,7 @@
             top: 1rem;
             left: calc(var(--sidebar-width) - 16px);
             background: var(--card-background);
-            border: 1px solid var(--primary-color);
+            border: 1px solid rgba(57, 64, 83, 0.2);
             color: var(--text-color);
             width: 32px;
             height: 32px;
@@ -189,7 +190,7 @@
             cursor: pointer;
             z-index: 1001;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         .sidebar.collapsed + .main-content .toggle-sidebar {
@@ -208,7 +209,7 @@
         .sidebar-header {
             text-align: center;
             padding: 1rem 0;
-            border-bottom: 1px solid var(--primary-color);
+            border-bottom: 1px solid rgba(57, 64, 83, 0.2);
             margin-bottom: 1rem;
         }
 
@@ -216,11 +217,12 @@
             height: 40px;
             margin-bottom: 1rem;
             transition: transform 0.3s ease, filter 0.3s ease;
+            filter: invert(1);
         }
 
         .sidebar-header a.logo-link:hover img {
             transform: scale(1.05);
-            filter: brightness(1.2);
+            filter: invert(1) brightness(0.9);
         }
 
         .sidebar-header h1 {
@@ -230,19 +232,14 @@
 
         .sidebar-header a.home-link {
             text-decoration: none;
-            background: linear-gradient(45deg, var(--primary-color), var(--accent-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--primary-color);
             transition: all 0.3s ease;
             display: inline-block;
         }
 
         .sidebar-header a.home-link:hover {
             transform: translateY(-1px);
-            background: linear-gradient(45deg, var(--accent-blue), var(--primary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            color: var(--charcoal);
         }
 
         /* Navigation Items */
@@ -263,7 +260,7 @@
 
         .nav-item:hover, .nav-item.active {
             background: var(--card-hover);
-            color: var(--accent-blue);
+            color: var(--primary-color);
         }
 
         .nav-item i {
@@ -292,10 +289,11 @@
             width: auto;
             min-width: 200px;
             max-width: 300px;
-            border: 1px solid var(--primary-color);
+            border: 1px solid rgba(57, 64, 83, 0.2);
+            color: var(--text-color);
             z-index: 2000;
             pointer-events: none;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
             white-space: normal;
             line-height: 1.4;
             margin-left: 16px;
@@ -318,10 +316,11 @@
             font-size: 0.8rem;
             opacity: 0;
             visibility: hidden;
-            border: 1px solid var(--primary-color);
+            border: 1px solid rgba(57, 64, 83, 0.2);
+            color: var(--text-color);
             white-space: nowrap;
             z-index: 2000;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
             line-height: 1.4;
             min-width: fit-content;
             pointer-events: none;
@@ -338,7 +337,7 @@
         .nav-category {
             font-size: 0.85rem;
             text-transform: uppercase;
-            color: var(--gray);
+            color: var(--charcoal);
             margin: 1rem 0 0.25rem 1rem;
             letter-spacing: 0.05em;
             white-space: nowrap;
@@ -348,7 +347,7 @@
         .sidebar-footer {
             margin-top: 2rem;
             padding: 1rem;
-            border-top: 1px solid var(--primary-color);
+            border-top: 1px solid rgba(57, 64, 83, 0.2);
             display: flex;
             gap: 1rem;
             justify-content: center;
@@ -366,17 +365,18 @@
         }
 
         .github-button {
-            background: var(--card-hover);
+            background: #f0f4ff;
             color: var(--text-color);
+            border: 1px solid rgba(57, 64, 83, 0.2);
         }
 
         .github-button:hover {
-            background: #2f3542;
+            background: var(--card-hover);
         }
 
         .donate-button {
             background: var(--primary-color);
-            color: var(--text-color);
+            color: #FFFFFF;
         }
 
         .donate-button:hover {
@@ -424,7 +424,7 @@
         }
 
         .welcome-screen h3 {
-            color: var(--accent-blue);
+            color: var(--primary-color);
             margin: 0.5rem 0 0 0;
             font-size: 2.2rem;
         }
@@ -473,7 +473,7 @@
 
         .disclaimer {
             font-size: 0.7rem;
-            color: #aaaaaa;
+            color: var(--gray);
             font-style: italic;
             max-width: 700px;
             margin: 0;
@@ -482,11 +482,11 @@
         }
         
         .disclaimer a {
-            color: #aaaaaa;
+            color: var(--gray);
         }
         
         .disclaimer a:hover {
-            color: var(--primary-light);
+            color: var(--primary-color);
         }
         
         .github-link {
@@ -500,7 +500,7 @@
             color: var(--text-color);
             text-decoration: none;
             transition: all 0.3s ease;
-            border: 1px solid var(--primary-color);
+            border: 1px solid rgba(57, 64, 83, 0.2);
             flex-shrink: 0;
         }
         
@@ -510,8 +510,8 @@
         
         .github-link:hover {
             transform: translateY(-2px);
-            color: var(--accent-blue);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .welcome-screen p {
@@ -530,19 +530,19 @@
         }
 
         .welcome-screen a {
-            color: var(--accent-blue);
+            color: var(--primary-color);
             text-decoration: underline;
             transition: all 0.3s ease;
         }
 
         .welcome-screen a:not(.welcome-donate-button) {
-            color: var(--accent-blue);
+            color: var(--primary-color);
             text-decoration: underline;
             transition: all 0.3s ease;
         }
 
         .welcome-screen a:not(.welcome-donate-button):hover {
-            color: var(--primary-color);
+            color: var(--charcoal);
         }
 
         .welcome-donate-button {
@@ -553,7 +553,7 @@
             font-size: 1rem;
             font-weight: 600;
             background: var(--primary-color);
-            color: var(--text-color);
+            color: #FFFFFF;
             text-decoration: none !important;
             border-radius: 8px;
             transition: all 0.3s ease;
@@ -578,7 +578,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: var(--accent-blue);
+            color: var(--primary-color);
             font-size: 1.1rem;
             opacity: 0.9;
             animation: fadeInOut 3s ease-in-out infinite;
@@ -595,7 +595,7 @@
             position: absolute;
             width: 30px;
             height: 30px;
-            border: 3px solid var(--accent-blue);
+            border: 3px solid var(--primary-color);
             border-right: none;
             border-bottom: none;
             left: 0;
@@ -609,8 +609,8 @@
             position: absolute;
             width: 12px;
             height: 12px;
-            border-left: 3px solid var(--accent-blue);
-            border-bottom: 3px solid var(--accent-blue);
+            border-left: 3px solid var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
             left: 2px;
             top: 50%;
             transform: translateY(-50%) rotate(45deg);
@@ -659,7 +659,7 @@
                 width: 44px;
                 height: 44px;
                 background: var(--card-background);
-                border: 1px solid var(--primary-color);
+                border: 1px solid rgba(57, 64, 83, 0.2);
                 border-radius: 50%;
                 align-items: center;
                 justify-content: center;
@@ -678,17 +678,17 @@
             }
 
             .mobile-menu-button i.fa-xmark {
-                color: var(--accent-blue);
+                color: var(--primary-color);
             }
 
             .mobile-menu-button.active {
-                border-color: var(--accent-blue);
+                border-color: var(--primary-color);
                 background: var(--card-hover);
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
             }
 
             .mobile-menu-button.active i {
-                color: var(--accent-blue);
+                color: var(--primary-color);
             }
 
             /* Ensure content stays below the mobile menu */
@@ -853,7 +853,7 @@
             padding: 1rem;
             border: 1px solid var(--accent-blue);
             border-radius: 8px;
-            background: rgba(160, 221, 255, 0.1);
+            background: rgba(160, 221, 255, 0.25);
             max-width: 600px;
             width: 100%;
             box-sizing: border-box;
@@ -863,7 +863,7 @@
         }
 
         .info-box i.fa-info-circle {
-            color: var(--accent-blue);
+            color: var(--primary-color);
             font-size: 1.2rem;
             flex-shrink: 0;
         }
@@ -874,7 +874,7 @@
         }
 
         .info-box a {
-            color: var(--accent-blue);
+            color: var(--primary-color);
             text-decoration: none;
             font-weight: 500;
             display: inline-flex;
@@ -915,7 +915,7 @@
             <a href="https://goodhearttech.org" target="_blank" class="logo-link">
                 <img src="https://graphics.goodhearttech.org/GHT-AllWhiteLogo-phishsite.png" alt="Good Heart Tech">
             </a>
-            <h1><a href="#" class="home-link">Nonprofit Tools Hub</a></h1>
+            <h1><a href="#" class="home-link">Nonprofit Web Tools</a></h1>
             </div>
         <nav>
             <div class="nav-category">Document & Media Tools</div>
@@ -1044,7 +1044,7 @@
             </div>
 
             <div class="disclaimer">
-                The tools provided in the Nonprofit Tools Hub are offered 'as is' without any guarantees or warranties, express or implied, and may be modified, discontinued, or become nonfunctional at any time without notice. View our <a href="https://goodhearttech.org/privacypolicy/" target="_blank">Privacy Policy</a>.
+                The tools provided in the Nonprofit Web Tools are offered 'as is' without any guarantees or warranties, express or implied, and may be modified, discontinued, or become nonfunctional at any time without notice. View our <a href="https://goodhearttech.org/privacypolicy/" target="_blank">Privacy Policy</a>.
             </div>
         </div>
         <iframe 

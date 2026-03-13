@@ -1,6 +1,6 @@
-# Nonprofit Tools Hub
+# Nonprofit Web Tools
 
-Welcome to the Nonprofit Tools Hub, a comprehensive suite of free tools designed specifically for nonprofit organizations. This collection of utilities helps nonprofits streamline their operations, enhance security, and improve efficiency. Try it out at [nonprofittools.org](https://nonprofittools.org)!
+Welcome to the Nonprofit Web Tools, a comprehensive suite of free tools designed specifically for nonprofit organizations. This collection of utilities helps nonprofits streamline their operations, enhance security, and improve efficiency. Try it out at [nonprofittools.org](https://nonprofittools.org)!
 
 ## 🏢 About [Good Heart Tech](https://goodhearttech.org/)
 
